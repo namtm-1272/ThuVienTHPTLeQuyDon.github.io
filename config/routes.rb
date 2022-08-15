@@ -1,3 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'students/new'
+  get 'students/create'
+  get 'students/destroy'
+  get 'users/new'
+  get 'users/create'
+  get 'users/destroy'
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  get 'static_pages/home'
+  get 'static_pages/about'
+  get 'static_pages/login'
+  root "static_pages#home"
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete '/logout', to: 'sessions#destroy'
+
+  resources :students, only: %i(new create show)
+  resources :admins
 end

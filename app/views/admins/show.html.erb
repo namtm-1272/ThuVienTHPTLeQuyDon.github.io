@@ -1,0 +1,10 @@
+<%= @admin.name %>, <%= @admin.email %>
+<div class="col-md-8">
+    <% if Student.any? %>
+      <h3><%= t ".micropost" %> (<%= Student.count %>)</h3>
+      <ol class="microposts">
+        <%= render @students %>
+      </ol>
+      <%== pagy_nav(@pagy) %>
+    <% end %>
+  </div>
