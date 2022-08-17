@@ -1,5 +1,5 @@
 class Admin < ApplicationRecord
-  has_many :students, dependent: :nullify
+  has_one :teacher, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

@@ -21,6 +21,7 @@ gem "rubocop-rails"
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
+gem "pry-rails"
 
 group :development, :test do
   gem "pry", "~> 0.14.0"
