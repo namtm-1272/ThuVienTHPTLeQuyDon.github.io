@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_13_103136) do
-
-  create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.datetime "birthday"
-    t.string "email"
-    t.string "Tk", null: false
-    t.string "password_digest"
-    t.integer "is_gv"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["Tk"], name: "index_admins_on_Tk", unique: true
-    t.index ["email"], name: "index_admins_on_email", unique: true
-  end
+ActiveRecord::Schema.define(version: 2022_08_17_182751) do
 
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
@@ -37,30 +24,34 @@ ActiveRecord::Schema.define(version: 2022_08_13_103136) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.string "class_in"
-    t.datetime "birthday"
-    t.string "email"
-    t.string "Tk", null: false
-    t.string "password_digest"
-    t.bigint "teacher_id", null: false
+  create_table "class_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "grade"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["Tk"], name: "index_students_on_Tk", unique: true
-    t.index ["email"], name: "index_students_on_email", unique: true
-    t.index ["teacher_id"], name: "index_students_on_teacher_id"
+    t.index ["name"], name: "index_class_users_on_name", unique: true
   end
 
   create_table "teachers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "to"
-    t.string "mon"
-    t.bigint "admin_id", null: false
+    t.string "subject"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["admin_id"], name: "index_teachers_on_admin_id"
+    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
-  add_foreign_key "students", "teachers"
-  add_foreign_key "teachers", "admins"
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "Tk", null: false
+    t.string "password_digest"
+    t.string "name"
+    t.datetime "birthday"
+    t.string "email"
+    t.integer "role", default: 2
+    t.integer "id_lop"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Tk"], name: "index_users_on_Tk", unique: true
+  end
+
+  add_foreign_key "teachers", "users"
 end
