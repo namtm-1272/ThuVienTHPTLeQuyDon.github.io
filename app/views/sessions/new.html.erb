@@ -6,13 +6,9 @@
           <p class="form-title"><%= t(".login") %></p>
           <%= form_for :session, url: login_path do |f| %>
           <%= f.label :username %>
-          <%= f.text_field :Ta, class: "form-control" %>
+          <%= f.text_field :Tk, class: "form-control" %>
           <%= f.label :password %>
           <%= f.password_field :password, class: "form-control" %>
-          <%= f.label :remember_me, class: "checkbox inline" do %>
-            <%= f.check_box :remember_me %>
-            <span><%= "Is teacher?" %></span>
-          <% end %>
           <%= f.submit "login", class: "submit-btn" %>
           <p class="message">Not registered? <a href="/register">Create an account</a></p>
         <% end %>
