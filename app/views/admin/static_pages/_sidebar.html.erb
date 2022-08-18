@@ -1,0 +1,15 @@
+<div class="sidebar">
+    <base href="admin">
+    <h3 class="title">Menu</h3>
+    <div class="sidebar-button menu">
+        Quản lý tài khoản
+    </div>
+    <%= link_to "Danh sách tài khoản", admin_root_path + "/accounts", class: "sidebar-button sub-menu"%>
+
+    <div class="sidebar-button menu">
+        Quản lý sách
+    </div>
+    <%= link_to "Danh sách sách", admin_root_path + "/books", class: "sidebar-button sub-menu"%>
+    <%= link_to "Thêm sách", admin_root_path + "/add-book", class: "sidebar-button sub-menu"%>
+    <%= link_to "Đăng xuất", logout_path, method: :delete, class: "sidebar-button"%>
+</div>
