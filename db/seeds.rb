@@ -10,7 +10,7 @@
     Book.create([
         {
             title: Faker::Book.title,
-            content: Faker::Lorem.paragraph(sentence_count: 4),
+            content: Faker::Lorem.paragraph(sentence_count: 6, supplemental: true, random_sentences_to_add: 4),
             author: Faker::Book.author,
             subject: Faker::Lorem.sentence(word_count: 2),
             image: Faker::LoremFlickr.image(size: "400x600"),
