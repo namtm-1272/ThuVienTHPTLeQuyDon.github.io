@@ -3,6 +3,8 @@ class Admin::BaseController < ActionController::Base
   # controller này sẽ dùng để viết các function dùng chung cho các controller admin
   # VD: check quyền là admin ms được vào site, ....
   include SessionsHelper
+  include Pagy::Backend
+  include Pagy::Frontend
   layout "layouts/application_admin"
   before_action :check_role_user
 

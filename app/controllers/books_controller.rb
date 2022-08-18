@@ -8,10 +8,11 @@ class BooksController < ApplicationController
     end
 
     def new
-    end  
+    end
+
+    
 
     def show
         @book = Book.find(params[:id])
     end  
   end
-  
