@@ -1,4 +1,13 @@
 <div class="admin-page">
-    <div> <%= render "sidebar" %> </div>
-    <div> <%= render "book" %> </div>
+    <div> <%= render "admin/static_pages/sidebar" %> </div>
+    <ul>
+    <div> <%= @book.title %></div>
+    <div> <%= @book.author %></div>
+    <div> <%= @book.describe %></div>
+    <div> <%= @book.content %></div>
+    </ul>
+    <div>
+      <p> Xem</p>
+      <%= link_to "delete", admin_book_path(@book), method: :delete, data: { confirm: t(".sure") } %>
+    </div>
 </div>

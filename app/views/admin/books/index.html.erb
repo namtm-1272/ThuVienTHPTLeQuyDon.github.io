@@ -1,0 +1,14 @@
+<div class="admin-page">
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div>
+<ul class="users">
+  <% @books.each do |book| %>
+<li>
+
+<%= link_to book.title, admin_book_path(book) %>
+</li>
+<% end %>
+</ul>
+<%== pagy_nav(@pagy) %>
+</div>
+</div>

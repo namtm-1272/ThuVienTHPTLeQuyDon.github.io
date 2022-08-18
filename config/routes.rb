@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  get 'users/show'
-  get 'users/create'
-  get 'users/destroy'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -26,11 +22,12 @@ Rails.application.routes.draw do
     root to: "static_pages#index"
     get "/admin", to: "static_pages#index"
     get "/accounts", to: "static_pages#account_list"
-    get "/books", to: "static_pages#book_list"
-    get "/add-book", to: "static_pages#add_book"
+    get "/books", to: "books#index"
+    get "/add_book", to: "books#new"
+    post "/add_book", to: "books#create"
+    
 
-    post "/add-book", to: "static_pages#create_book"
     resources :static_pages
-    resources :books, expect: %i( edit )
+    resources :books
   end
 end
