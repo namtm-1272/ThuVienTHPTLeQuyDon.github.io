@@ -23,6 +23,11 @@ Rails.application.routes.draw do
   resources :users
   namespace :admin do
     root to: "static_pages#index"
+    get "/admin", to: "static_pages#index"
+    get "/accounts", to: "static_pages#account_list"
+    get "/books", to: "static_pages#book_list"
+    get "/add-book", to: "static_pages#add_book"
+    post "/add-book", to: "static_pages#create_book"
     resources :static_pages
   end
 end
