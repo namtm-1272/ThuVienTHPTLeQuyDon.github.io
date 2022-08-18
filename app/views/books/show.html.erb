@@ -21,8 +21,8 @@
         </div>
         <div class="pagination">
             <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
-            <% for i in 0..$totalPage %>
-               <a href="#" class="<%= 'active' if (@page == i) %>"><%= i %></a>
+            <% for i in (1..@totalPage) do %>
+               <a href="/books?page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
             <% end %>
             <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
         </div>
