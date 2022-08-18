@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/about'
   get 'static_pages/login'
-  get "/books", to: "books#show"
+  get "/books", to: "books#index"
   get 'books/show'
   get 'books/create'
   get 'books/destroy'
