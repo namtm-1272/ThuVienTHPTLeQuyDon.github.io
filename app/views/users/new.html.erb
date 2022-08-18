@@ -1,2 +1,28 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="form-container">
+    <div class="container">
+        <div class="form row">
+            <div class="register-form">
+            <% provide :title, t(".register") %>
+                <p class="form-title"><%= t(".register") %></p>
+                <%= form_for :user, url: register_path do |f| %>
+                <%= f.label :username %>
+                <%= f.text_field :Tk, class: "form-control" %>
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control" %>
+                <%= f.label :birthday %>
+                <%= f.text_field :birthday, class: "form-control" %>
+                <%= f.label :email %>
+                <%= f.text_field :email, class: "form-control" %>
+                <%= f.label :role %>
+                <%= f.text_field :role, class: "form-control" %>
+                <%= f.label :class_id %>
+                <%= f.text_field :id_lop, class: "form-control" %>
+                <%= f.submit "register", class: "submit-btn" %>
+                <p class="message">Already register? <a href="/login">Login</a></p>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
