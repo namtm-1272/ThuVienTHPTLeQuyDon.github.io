@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'students/new'
-  get 'students/create'
-  get 'students/destroy'
   get 'users/new'
+  get 'users/show'
   get 'users/create'
   get 'users/destroy'
   get 'sessions/new'
@@ -11,11 +9,20 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/about'
   get 'static_pages/login'
+  get "/books", to: "books#show"
+  get 'books/show'
+  get 'books/create'
+  get 'books/destroy'
   root "static_pages#home"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+  get "/register", to: "users#new"
+  post "/register", to: "users#new"
   delete '/logout', to: 'sessions#destroy'
 
-  resources :students, only: %i(new create show)
-  resources :admins
+  resources :users
+  namespace :admin do
+    root to: "static_pages#index"
+    resources :static_pages
+  end
 end

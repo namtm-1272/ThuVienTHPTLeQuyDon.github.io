@@ -1,8 +1,5 @@
-<div class="home-page">
+<div class="books-page">
     <div class="book-list-container">
-        <div class="book-list-header">
-            Sách mới nhất <span><a href="/books">Xem them</a></span>
-        </div>
         <div class="book-list">
             <% @books.each do |book| %>
                 <a href="#">
@@ -21,6 +18,13 @@
                     </div>
                 </a>
             <% end %>
+        </div>
+        <div class="pagination">
+            <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
+            <% for i in 0..$totalPage %>
+               <a href="#" class="<%= 'active' if (@page == i) %>"><%= i %></a>
+            <% end %>
+            <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
         </div>
     </div>
 </div>

@@ -2,26 +2,14 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    if params[:session][:remember_me] == "0"
+    user = User.find_by Tk: params[:session][:Tk].downcase
+    if user && user.authenticate(params[:session][:password])
+      log_in user
 
-      @student = Student.find_by(Tk: params[:session][:Tk].downcase)
-
-      if @student&.authenticate params[:session][:password]
-        log_in @student
-        redirect_to @student
-      else
-        flash.now[:danger] = "invalid_email_password_combination"
-        render :new
-      end
+      redirect
     else
-      @admin = Admin.find_by Tk: params[:session][:Tk].downcase
-      if @admin&.authenticate params[:session][:password]
-        log_in @admin
-        redirect_to @admin
-      else
-        flash.now[:danger] = "invalid_email_password_combination"
-        render :new
-      end
+      flash.now[:danger] = "invalid_email_password_combination"
+      render :new
     end
   end
 
@@ -29,5 +17,15 @@ class SessionsController < ApplicationController
     log_out if logged_in?
 
     redirect_to root_url
+  end
+
+  private
+  def redirect
+    user = current_user
+    if user.role != 2
+      redirect_to admin_root_path
+    else
+      redirect_to user
+    end
   end
 end
