@@ -1,36 +1,36 @@
-<div class="book-information-page">
-    <div class="book-information">
-        <div class="top-content">
-            <div class="image-wrapper">
-                <img src="<%= @book.image %>" width="100%">
+<div class="book-information-page-wrapper">
+    <div class="book-information-page">
+        <div class="book-information">
+            <div class="top-content">
+                <div class="image-wrapper">
+                    <img src="<%= @book.image %>" width="100%">
+                </div>
+
+                <div class="book-content-wrapper">
+                    <div class="book-title">
+                        <%= @book.title %>
+                    </div>
+
+                    <div class="book-author">
+                        Tác giả: <%= @book.author %>
+                    </div>
+
+                    <div class="book-subject">
+                        Thể loại: <%= @book.subject %>
+                    </div>
+
+                    <div class="book-describe">
+                        Miêu tả: <%= @book.describe %>
+                    </div>
+                </div>
             </div>
 
-            <div class="book-content-wrapper">
-                <div class="book-title">
-                    <%= @book.title %>
-                </div>
-
-                <div class="book-author">
-                    Tác giả: <%= @book.author %>
-                </div>
-
-                <div class="book-subject">
-                    Thể loại: <%= @book.subject %>
-                </div>
-
-                <div class="book-describe">
-                    Miêu tả: <%= @book.describe %>
-                </div>
+            <div class="bottom-content">
+                <button class="read-btn" type="button" onclick="onRead()">Đọc sách</button>
             </div>
         </div>
-
-        <div class="bottom-content">
-            <button class="read-btn" type="button" onclick="onRead()">Đọc sách</button>
+        <div class="book-content" id="content">
+            <%= @book.content %>
         </div>
     </div>
-    <div class="book-content" id="content">
-        <%= @book.content %>
-    </div>
-
 </div>
-<%= javascript_pack_tag('books.js') %>

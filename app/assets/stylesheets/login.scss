@@ -42,7 +42,7 @@ input {
 
 /* Login form */
 .form-container {
-  background: url("https://remove.vn/wp-content/uploads/2021/09/a4b33886128681.5d909dad47ded.jpg") no-repeat;
+  background: url("https://www.xmple.com/wallpaper/white-red-gradient-linear-1920x1080-c2-ffffff-fa8072-a-90-f-14.svg") no-repeat;
   background-size: cover;
 }
 
@@ -57,7 +57,7 @@ input {
   .form-title {
     font-size: 36px;
     font-weight: 700;
-    color: #7f2596;
+    color: #d1001f;
   }
 
   .form-control,
@@ -74,8 +74,8 @@ input {
     border-radius: 8px;
 
     &:focus {
-      border-color: #7f2596;
-      box-shadow: 0 0 8px #7f2596;
+      border-color: #d1001f;
+      box-shadow: 0 0 8px #d1001f;
     }
   }
 
@@ -83,7 +83,7 @@ input {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #7f2596;
+    background: #d1001f;
     width: 100%;
     border: 0;
     padding: 15px;
@@ -98,7 +98,7 @@ input {
   .submit-btn:hover,
   .submit-btn:active,
   .submit-btn:focus {
-    background: #7f2596;
+    background: #d1001f;
   }
 
   .message {
@@ -108,7 +108,7 @@ input {
   }
 
   .message a {
-    color: #7f2596;
+    color: #d1001f;
     text-decoration: none;
   }
 }

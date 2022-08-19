@@ -1,5 +1,12 @@
 <div class="book-page-wrapper">
     <div class="books-page">
+        <div class="result-title">
+        Tìm thấy <span class="result-count">
+            <%= @totalResult %>
+        </span> kết quả với từ khóa <span class="result-query">
+            <%= @query %>
+        </span>
+        </div>
         <div class="book-list-container">
             <div class="book-list">
                 <% @books.each do |book| %>
@@ -21,11 +28,11 @@
                 <% end %>
             </div>
             <div class="pagination">
-                <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
+                <% if (@page > 1) %><a href="/search?q=<%= @query %>&page=<%= @page - 1%>">&laquo;</a><% end %>
                 <% for i in (1..@totalPage) do %>
-                <a href="/books?page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
+                <a href="/search?q=<%= @query %>&page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
                 <% end %>
-                <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
+                <% if (@page < @totalPage) %><a href="/search?q=<%= @query %>&page=<%= @page + 1 %>">&raquo;</a><% end %>
             </div>
         </div>
     </div>
