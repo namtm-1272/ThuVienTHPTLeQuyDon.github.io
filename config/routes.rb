@@ -22,13 +22,13 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "static_pages#index"
     get "/admin", to: "static_pages#index"
-    get "/accounts", to: "static_pages#account_list"
+    get "/accounts", to: "accounts#index"
     get "/books", to: "books#index"
     get "/add_book", to: "books#new"
     post "/add_book", to: "books#create"
-    
 
     resources :static_pages
     resources :books
+    resources :accounts
   end
 end

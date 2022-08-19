@@ -1,13 +1,30 @@
 <div class="admin-page">
-    <div> <%= render "admin/static_pages/sidebar" %> </div>
-    <ul>
-    <div> <%= @book.title %></div>
-    <div> <%= @book.author %></div>
-    <div> <%= @book.describe %></div>
-    <div> <%= @book.content %></div>
-    </ul>
-    <div>
-      <p> Xem</p>
-      <%= link_to "delete", admin_book_path(@book), method: :delete, data: { confirm: t(".sure") } %>
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="form-container">
+    <div class="form row">
+      <div class="edit-book">
+        <p class="form-title">Chỉnh sửa sách</p>
+        <%= form_for :book do |f| %>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control", value: @book.title %>
+          <%= f.label :author %>
+          <%= f.text_field :author, class: "form-control", value: @book.author %>
+          <%= f.label :subject %>
+          <%= f.text_field :subject, class: "form-control", value: @book.subject %>
+          <%= f.label :describe %>
+          <%= f.text_area :describe, class: "form-control", value: @book.describe %>
+          <%= f.label :content %>
+          <%= f.text_area :content, class: "form-control", value: @book.content %>
+          <%= f.label :image %>
+          <%= f.text_field :image, class: "form-control", value: @book.image %>
+          <%= f.label :publish_on %>
+          <%= f.text_field :publish_on, class: "form-control", value: @book.publish_on %>
+          <%= f.submit "Edit", class: "submit-btn" %>
+        <% end %>
+        <%= link_to admin_book_path(@book), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" }, class: "delete-btn" do %>
+          <span class="fa fa-trash"></span>
+        <% end %>
+      </div>
     </div>
+  </div>
 </div>
