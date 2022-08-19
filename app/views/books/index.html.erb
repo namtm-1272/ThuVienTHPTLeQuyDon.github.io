@@ -1,31 +1,39 @@
 <div class="book-page-wrapper">
     <div class="books-page">
-        <div class="book-list-container">
-            <div class="book-list">
-                <% @books.each do |book| %>
-                    <a href="<%= "books/show?id=" + book.id.to_s %>">
-                        <div class="book-item-row">
-                            <div class="image-wrapper">
-                                <img src="<%= book.image %>" width="100%"/>
-                                <div class="see-detail">Xem chi tiết</div>
+        <div class="left-section">
+        </div>
+        <div class="right-section">
+            <form class="sorts-form" action="/books">
+                Sắp xếp theo: <%= select_tag "sorts", options_for_select([["Tên A-Z", "title:asc"], ["Tên Z-A", "title:desc"]]), class: 'customer-select'  %>
+                <button type="submit" class="sort-btn"><span class="fa fa-filter"></span></button>
+            </form>
+            <div class="book-list-container">
+                <div class="book-list">
+                    <% @books.each do |book| %>
+                        <a href="<%= "books/show?id=" + book.id.to_s %>">
+                            <div class="book-item-row">
+                                <div class="image-wrapper">
+                                    <img src="<%= book.image %>" width="100%"/>
+                                    <div class="see-detail">Xem chi tiết</div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <p class="title">
+                                        <%= book.title %>
+                                        <span class="author">by <%= book.author %></span>
+                                    </p>
+                                    <p class="describe"><%= book.describe %></p>
+                                </div>
                             </div>
-                            <div class="detail-wrapper">
-                                <p class="title">
-                                    <%= book.title %>
-                                    <span class="author">by <%= book.author %></span>
-                                </p>
-                                <p class="describe"><%= book.describe %></p>
-                            </div>
-                        </div>
-                    </a>
-                <% end %>
-            </div>
-            <div class="pagination">
-                <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
-                <% for i in (1..@totalPage) do %>
-                <a href="/books?page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
-                <% end %>
-                <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
+                        </a>
+                    <% end %>
+                </div>
+                <div class="pagination">
+                    <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
+                    <% for i in (1..@totalPage) do %>
+                    <a href="/books?page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
+                    <% end %>
+                    <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
+                </div>
             </div>
         </div>
     </div>
