@@ -1,0 +1,39 @@
+<div class="admin-page">
+    <div> <%= render "admin/static_pages/sidebar" %> </div>
+    <div class="account-manage-page">
+    <table class="rwd-table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birthday</th>
+            <th>Class</th>
+            <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @accounts.each do |account| %>
+        <tr>
+            <td><%= account.Tk %></td>
+            <td><%= account.name %></td>
+            <td><%= account.email %></td>
+            <td><%= account.birthday %></td>
+            <td><%= account.id_lop ? account.id_lop : "N/A" %></td>
+            <td>
+                <div class="action-btn">
+                    <%= link_to admin_account_path(account) do %>
+                        <span class="fa fa-edit"></span>
+                    <% end %>
+                    <%= link_to admin_account_path(account), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
+                        <span class="fa fa-trash"></span>
+                    <% end %>
+                </div>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+    <%== pagy_nav(@pagy) %>
+  </div>
+</div>

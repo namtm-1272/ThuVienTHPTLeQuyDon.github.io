@@ -1,6 +1,6 @@
 class Admin::BooksController < Admin::BaseController
     def index
-      @pagy, @books = pagy Book.all
+      @pagy, @books = pagy(Book.all, items: 8)
     end
 
     def show
