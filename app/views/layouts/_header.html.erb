@@ -1,7 +1,7 @@
 <div class="header">
   <div class="header-body">
     <div class="top-section">
-      <%= link_to "sample app", root_path, class: "logo" %>
+      <%= link_to "Thư viện Lê Quý Đôn", root_path, class: "logo" %>
       <div class="header-right">
         <%= link_to "Home", root_path %>
         <%= link_to "Books", "/books" %>
@@ -14,7 +14,6 @@
             <div class="dropdown-content">
               <%= link_to "Profile", current_user %>
               <%= link_to "Settings", '#' %>
-              <div class="divider"></div>
               <%= link_to "Log out", logout_path, method: :delete %>
             </div>
           </div>
@@ -29,6 +28,9 @@
         <input type="submit" hidden />
         <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
       </form>
+      <a href="/">
+        <img src="http://thcslequydon.tpbacgiang.edu.vn/upload/38254/20171111/LEQUYDON_update_2_JPG.jpg" width="100%">
+      </a>
     </div>
   </div>
 </div>
