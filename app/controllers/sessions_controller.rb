@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     if user.role != 2
       redirect_to admin_root_path
     else
-      redirect_to user
+      redirect_to root_url
     end
   end
 end

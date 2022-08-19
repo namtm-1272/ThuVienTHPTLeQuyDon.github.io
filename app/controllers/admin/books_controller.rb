@@ -11,6 +11,17 @@ class Admin::BooksController < Admin::BaseController
         @book = Book.new
     end
 
+    def update
+      @book = Book.find(book_params[:id])
+      if (@book.update(book_params))
+        flash[:success] = "Successed"
+        render "admin/books/show"
+      else 
+        flash[:alert] = "Something was wrong"
+        render "admin/books/show"
+      end
+    end
+
     def create
       @book = Book.new(book_params)
       if @book.save
@@ -35,7 +46,7 @@ class Admin::BooksController < Admin::BaseController
       private
 
     def book_params
-      params.require(:book).permit(:title, :author,
+      params.require(:book).permit(:id, :title, :author,
                                     :subject, :describe, :content, :image, :publish_on)
     end
 
