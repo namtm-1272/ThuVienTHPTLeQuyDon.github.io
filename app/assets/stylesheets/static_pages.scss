@@ -4,6 +4,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.home-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background: #F0F0F0;
+
+    .home-page {
+        width: 100%;
+        max-width: 1120px;
+    }
+
+    .book-list-header {
+        width: 100%;
+        padding: 16px;
+        background: #d1001f;
+        color: #fff;
+    }
+
+    .book-list {
+        background: #fff;
+        padding: 16px;
+        margin: 0;
+    }
+}
 
 .slide-promotion {
     .slideshow-container {
@@ -44,7 +69,7 @@
 
     .prev:hover,
     .next:hover {
-        color: #7f2596;
+        color: #d1001f;
         background-color: #f4f4ec;
     }
 
@@ -70,7 +95,7 @@
 
     .active,
     .dot:hover {
-        background-color: #7f2596;
+        background-color: #d1001f;
     }
 
     .fade_banner {

@@ -16,10 +16,8 @@ showSlides = (n) => {
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-
-    console.log(slideIndex)
+    slides.item(slideIndex - 1).style.display = "block";
+    dots.item(slideIndex - 1).className += " active";
 }
 
 
@@ -32,3 +30,4 @@ currentSlide = (n) => {
 }
 
 showSlides(slideIndex);
+

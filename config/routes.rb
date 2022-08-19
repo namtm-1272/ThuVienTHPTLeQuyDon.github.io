@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   post "/register", to: "users#create"
   delete '/logout', to: 'sessions#destroy'
-
+  get "/search", to: "books#search"
   resources :users
 
   namespace :admin do
