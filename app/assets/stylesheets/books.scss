@@ -16,13 +16,14 @@
 .books-page {
     width: 100%;
     max-width: 1120px;
+    padding: 16px 0;
+
 }
 
 .book-list-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 16px 0;
     min-height: calc(100vh - 300px);
 
     .book-list-header {
@@ -142,6 +143,47 @@
         background-color: #ddd;
     }
 }
+
+.sorts-form {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    white-space: nowrap;
+
+    select {
+        padding: 7px 20px 7px 12px;
+        margin: 0;
+        font-weight: 500;
+        border-radius: 5px;
+        background: #fff;
+        border: 1px solid #888;
+        font-family: inherit;
+        font-size: 16px;
+        transition: all 150ms ease;
+        color: #223254;
+        width: 200px;
+    }
+
+    select:focus {
+        border: 1px solid #223254;
+    }
+
+    select:hover {
+        border: 2px solid rgb(24, 24, 24);
+    }
+
+    .sort-btn {
+        width: 70px;
+        height: 30px;
+        border-radius: 6px;
+        border: none;
+        background: #d1001f;
+        color: #fff;
+
+    }
+}
+
+
 
 /* Book information */
 .book-information-page {

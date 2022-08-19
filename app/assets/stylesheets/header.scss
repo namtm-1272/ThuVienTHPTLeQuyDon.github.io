@@ -10,6 +10,7 @@
         height: 100%;
         width: 100%;
         max-width: 1120px;
+        position: relative;
 
         .top-section {
             width: 100%;
@@ -45,6 +46,9 @@
         display: flex;
         flex-direction: row;
         float: right;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 }
 
@@ -72,7 +76,8 @@
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1
+    background-color: #f1f1f1;
+    color: #d1001f;
 }
 
 .dropdown:hover .dropdown-content {

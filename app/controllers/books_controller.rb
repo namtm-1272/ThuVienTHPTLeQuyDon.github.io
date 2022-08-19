@@ -2,20 +2,29 @@ class BooksController < ApplicationController
     BOOKS_PER_PAGE = 8
 
     def index
+        if (params[:sorts]) then 
+            @sorts = params[:sorts]
+            @sorts[":"] = " " 
+        end
         @page = [params.fetch(:page, 1).to_i, 1].max
         @totalPage = (Book.all.count * 1.0 / BOOKS_PER_PAGE).ceil
-        @books = Book.offset((@page - 1) * BOOKS_PER_PAGE).limit(BOOKS_PER_PAGE)
+
+        if (!!@sorts && @sorts.length()) then
+            @books = Book.order(@sorts).offset((@page - 1) * BOOKS_PER_PAGE).limit(BOOKS_PER_PAGE)
+        else
+            @books = Book.order("title").offset((@page - 1) * BOOKS_PER_PAGE).limit(BOOKS_PER_PAGE)
+        end
     end
 
     def new
     end
 
     def search
-        @query = params[:q]
+        @query = params[:q] ? params[:q] : ""
         @totalResult = Book.where("title LIKE ?", "%" + @query + "%").count
         @totalPage = (@totalResult* 1.0 / BOOKS_PER_PAGE).ceil
         @page = [params.fetch(:page, 1).to_i, 1].max
-        @books = Book.where("title LIKE ?", "%" + @query + "%").offset((@page - 1) * BOOKS_PER_PAGE).limit(BOOKS_PER_PAGE)
+        @books = Book.where("title LIKE ?", "%" + @query + "%").order("title").offset((@page - 1) * BOOKS_PER_PAGE).limit(BOOKS_PER_PAGE)
     end
     
 
