@@ -11,43 +11,39 @@ class Admin::BooksController < Admin::BaseController
         @book = Book.new
     end
 
-    def update
-      @book = Book.find(book_params[:id])
-      if (@book.update(book_params))
-        flash[:success] = "Successed"
-        render "admin/books/show"
-      else 
-        flash[:alert] = "Something was wrong"
-        render "admin/books/show"
-      end
-    end
-
     def create
       @book = Book.new(book_params)
-      if @book.save
-        flash[:success] = "Successed"
-        render :new
-      else
-          flash[:danger] = "No Successed"
-          render :new
+      respond_to do |format|
+        if @book.save
+          CreateImagesOfPdfPagesJob.set(wait: 2.seconds).perform_later(@book.id)
+          format.js
+          format.html { redirect_to admin_books_path(@book), notice: "book was successfully created." }
+          format.json { render :show, status: :created, location: @book }
+        else
+          format.js
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @book.errors, status: :unprocessable_entity }
+        end
       end
     end
 
     def destroy
-      @book = Book.find_by id: params[:id]
-      if @book.destroy
-        flash[:success] = "success"
-      else
-        flash[:danger] = "danger"
-      end
-      redirect_to admin_books_path
+      @book.destroy
+      respond_to do |format|
+        format.html { redirect_to admin_books_url, notice: "book was successfully destroyed." }
+        format.json { head :no_content }
+    end
     end
 
       private
 
+      def set_book
+        @book = book.find(params[:id])
+      end
+
     def book_params
       params.require(:book).permit(:id, :title, :author,
-                                    :subject, :describe, :content, :image, :publish_on)
+                                    :subject, :describe, :publish_on, :doc_file)
     end
 
 

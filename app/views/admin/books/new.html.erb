@@ -15,10 +15,10 @@
           <%= f.text_area :describe, class: "form-control" %>
           <%= f.label :content %>
           <%= f.text_area :content, class: "form-control" %>
-          <%= f.label :image %>
-          <%= f.text_field :image, class: "form-control" %>
           <%= f.label :publish_on %>
-          <%= f.text_field :publish_on, class: "form-control" %>
+          <%= f.date_select :publish_on, start_year: 1800, end_year: Time.now.year %>
+          <%= f.label :upload_file %>
+          <%= f.file_field :doc_file, required: true %>
           <%= f.submit "Add", class: "submit-btn" %>
         <% end %>
       </div>

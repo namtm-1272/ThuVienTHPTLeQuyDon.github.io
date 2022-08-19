@@ -15,3 +15,4 @@ ActiveStorage.start()
 require("jquery")
 import "bootstrap"
 require("./books")
+require("./home")
