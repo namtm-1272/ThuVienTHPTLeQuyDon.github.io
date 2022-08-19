@@ -5,6 +5,7 @@
       <div class="edit-book">
         <p class="form-title">Chỉnh sửa sách</p>
         <%= form_for :book do |f| %>
+          <%= f.hidden_field :id, value: @book.id%>
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control", value: @book.title %>
           <%= f.label :author %>

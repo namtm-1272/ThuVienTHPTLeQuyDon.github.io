@@ -11,6 +11,18 @@ class Admin::AccountsController < Admin::BaseController
         @account = User.new
     end
 
+    def update
+      @account = User.find(account_params[:id])
+      if (@account.update(account_params))
+        flash[:success] = "Successed"
+        render "admin/accounts/show"
+      else 
+        flash[:alert] = "Something was wrong"
+        render "admin/accounts/show"
+
+      end
+    end
+
     def create
       @account = User.new(account_params)
       if @account.save
@@ -33,6 +45,7 @@ class Admin::AccountsController < Admin::BaseController
     end
 
     def account_params
-      params.require(:account).permit(:Tk, :name, :birthday, :email, :role, :id_lop)
+      params.require(:account).permit(:id, :Tk, :password, :name, :birthday, :email, :role, :id_lop)
     end
+
   end

@@ -5,6 +5,7 @@
       <div class="edit-account">
         <p class="form-title">Chỉnh sửa tài khoản</p>
         <%= form_for :account do |f| %>
+        <%= f.hidden_field :id, value: @account.id%>
         <%= f.label :username %>
         <%= f.text_field :Tk, class: "form-control", value: @account.Tk %>
         <%= f.label :password %>
@@ -16,7 +17,7 @@
         <%= f.label :email %>
         <%= f.text_field :email, class: "form-control", value: @account.email %>
         <%= f.label :role %>
-        <%= f.select :role, options_for_select([["User", "2"], ["Admin", "1"]]), class: "form-control", value: @account.role %>
+        <%= f.select :role, options_for_select([["Admin", "1"], ["User", "2"]]), class: "form-control", value: @account.role %>
         <%= f.label :class_id %>
         <%= f.text_field :id_lop, class: "form-control", value: @account.id_lop %>
         <%= f.submit "Edit", class: "submit-btn" %>
