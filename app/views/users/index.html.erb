@@ -23,7 +23,7 @@
                 <p>Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</p>
                 <div class="divider"></div>
             </header>
-            <%= form_for :user_password do |f| %>
+            <%= form_for :user do |f| %>
                 <%= f.hidden_field :id, value: current_user.id%>
                 <%= f.label :password %>
                 <%= f.password_field :password, class: "form-control" %>

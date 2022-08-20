@@ -126,8 +126,9 @@
     .search-btn {
         position: absolute;
         right: 12px;
-        bottom: 10px;
-        width: 70px;
+        bottom: 0;
+        top: 0;
+        width: 100px;
         height: 30px;
         border-radius: 6px;
         border: none;
