@@ -34,6 +34,17 @@ class Admin::ClassUsersController < Admin::BaseController
         render :edit
       end
     end
+
+    def destroy
+      @class_user = ClassUser.find_by id: params[:id]
+      if @class_user.destroy
+        flash[:success] = "success"
+      else
+        flash[:danger] = "danger"
+      end
+      redirect_to admin_class_users_path
+    end
+
     private
 
     def class_user_params

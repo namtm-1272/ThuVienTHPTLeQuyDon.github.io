@@ -4,11 +4,13 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :content
       t.string :author
-      t.string :subject
-      t.string :image
+      t.string :grade
       t.string :describe
       t.datetime :publish_on
-      
+      t.integer :num_watch, :default => 0
+      t.references :subject, null: false, foreign_key: true
+      t.references :category, null: false, foreign_key: true
+
       t.timestamps
     end
   end

@@ -1,9 +1,14 @@
 <div class="admin-page">
     <div> <%= render "admin/static_pages/sidebar" %> </div>
     <div class="account-manage-page">
+    <%= link_to new_admin_user_path do %>
+                        <span class="fa fa-plus"></span>
+                    <% end %>
         <%= search_form_for [:admin, @q] do |f| %>
             <%= f.label :name_cont %>
             <%= f.search_field :name_cont %>
+            <%= f.label :role_cont %>
+      <%= f.select :role_cont, options_for_select([["",""],["teacher", "teacher?"],["student", "2"]]), class: "form-control"%>
             <%= f.submit %>
         <% end %>
     <table class="rwd-table">

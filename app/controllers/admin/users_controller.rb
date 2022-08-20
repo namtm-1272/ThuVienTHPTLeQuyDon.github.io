@@ -5,6 +5,9 @@ class Admin::UsersController < Admin::BaseController
         @pagy, @users = pagy(@q.result, items: 10)
       else
         @q = User.asc_name.ransack(params[:q])
+
+
+
         @pagy, @users = pagy(@q.result, items: 10)
       end
     end
@@ -20,6 +23,7 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def update
+      params[:id]["role"] = params[:id]["role"].to_i
       @user = User.find_by id: params[:id]
       if @user.update user_params
         flash[:success] = "Successed"
@@ -32,6 +36,8 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def create
+
+
       @user = User.new(user_params)
 
       if @user.save
@@ -55,7 +61,7 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def user_params
-      params.require(:user).permit(:Tk, :password, :name, :birthday, :email, :role, :class_user_id)
+      params.require(:user).permit(:id, :Tk, :password, :name, :birthday, :email, :role, :class_user_id)
     end
 
   end

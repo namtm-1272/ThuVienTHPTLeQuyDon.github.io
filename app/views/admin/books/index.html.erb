@@ -2,28 +2,32 @@
   <div> <%= render "admin/static_pages/sidebar" %> </div>
   <div class="book-manage-page">
     <%= search_form_for [:admin, @q] do |f| %>
-    <%= f.label :title_cont %>
-    <%= f.search_field :title_cont %>
-    <%= f.submit %>
-  <% end %>
+      <%= f.label :title_cont %>
+      <%= f.search_field :title_cont %>
+      <%= f.label :grade_cont %>
+      <%= f.select :grade_cont, options_for_select([["",""],["6", "6"],["7", "7"], ["8", "8"], ["9","9"], ["Mọi lứa tuổi"],["Mọi lứa tuổi"]]), class: "form-control"%>
+      <%= f.label :category %>
+      <%= f.select :category, options_for_select([["",""],["SGK", "SGK"],["Sách tham khảo", "Sách tham khảo"]]), class: "form-control"%>
+      <%= f.submit %>
+    <% end %>
+    <%= link_to "All", admin_books_path  %>
     <div class="book-list">
       <% @books.each do |book| %>
         <%= link_to admin_book_path(book) do %>
           <div class="book-item-row">
-              <div class="image-wrapper">
-                  <%= image_tag book.doc_file_pages.first %>
-              </div>
-              <div class="detail-wrapper">
-                  <p class="title">
-                      <%= book.title %>
-                      <span class="author">by <%= book.author %></span>
-                  </p>
-              </div>
+            <div class="image-wrapper">
+              <%= image_tag book.doc_file_pages.first %>
+            </div>
+            <div class="detail-wrapper">
+              <p class="title">
+                <%= book.title %>
+                <span class="author">by <%= book.author %></span>
+              </p>
+            </div>
           </div>
         <% end %>
       <% end %>
     </div>
     <%== pagy_nav(@pagy) %>
   </div>
-
 </div>

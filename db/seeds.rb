@@ -5,19 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-20.times do 
-    Book.create([
-        {
-            title: Faker::Book.title,
-            content: Faker::Lorem.paragraph(sentence_count: 6, supplemental: true, random_sentences_to_add: 4),
-            author: Faker::Book.author,
-            subject: Faker::Lorem.sentence(word_count: 2),
-            image: Faker::LoremFlickr.image(size: "400x600"),
-            describe: Faker::Lorem.paragraph(sentence_count: 2),
-            publish_on: Time.now.to_s(:db),
-            created_at: Time.now.to_s(:db),
-            updated_at: Time.now.to_s(:db)
-        }
-    ])
-end
+ClassUser.create!(name: "", grade: "")
+User.create!(name: "Thay Trong Beo",
+            email: "thanminhnam@gmail.com",
+            password:"123456",
+            password_confirmation: "123456",
+            Tk: "admin123456",role: 0, class_user_id: 1)
+Access.create!(num_access: 0)
