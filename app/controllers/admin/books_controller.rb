@@ -10,6 +10,7 @@ class Admin::BooksController < Admin::BaseController
     def new
         @book = Book.new
     end
+    
 
     def create
       @book = Book.new(book_params)
@@ -44,10 +45,7 @@ class Admin::BooksController < Admin::BaseController
       end
 
     def book_params
-      params.require(:book).permit(:id, :title, :author,
+      params.require(:book).permit(:id, :title, :author, :content,
                                     :subject, :describe, :publish_on, :doc_file)
     end
-
-
-
   end
