@@ -1,2 +1,2 @@
-$("#exampleModal").html("<%= escape_javascript render('documents/waiting_modal', document_id: @document.id) %>");
+$("#exampleModal").html("<%= escape_javascript render('admin/books/waiting_modal', book_id: @book.id) %>");
 $("#exampleModal").modal('show');

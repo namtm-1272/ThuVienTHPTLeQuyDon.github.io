@@ -16,15 +16,15 @@ class UsersController < ApplicationController
       @user = User.find(update_password[:id])
       if (@user.update(update_password))
         redirect_to root_path
-      else 
+      else
         flash[:alert] = "Something was wrong"
         render :new
       end
-    else 
+    else
       @user = User.find(update_params[:id])
       if (@user.update(update_params))
         redirect_to root_path
-      else 
+      else
         flash[:alert] = "Something was wrong"
         render :new
       end
@@ -50,6 +50,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.required(:user).permit(:Tk, :password, :name, :birthday, :email, :role, :id_lop)
+    params.required(:user).permit(:Tk, :password, :name, :birthday, :email, :role, :class_user_id)
   end
 end

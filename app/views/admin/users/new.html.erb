@@ -1,0 +1,28 @@
+<div class="admin-page">
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="form-container">
+    <div class="form row">
+      <div class="edit-account">
+        <p class="form-title">tài khoản mới</p>
+        <%= form_for [:admin, @user] do |f| %>
+        <%= render "admin/shared/error_messages", object: f.object %>
+        <%= f.label :username %>
+        <%= f.text_field :Tk, class: "form-control"%>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= f.label :birthday %>
+        <%= f.date_field :birthday, class: "form-control" %>
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control"%>
+        <%= f.label :role %>
+        <%= f.select :role, options_for_select([["Admin", "admin"],["Teacher", "teacher"], ["Student", "student"]]), class: "form-control"%>
+        <%= f.label :id_lop %>
+        <%= collection_select(:user, :class_user_id, @class_users, :id, :name) %>
+        <%= f.submit "New", class: "submit-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
