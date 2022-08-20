@@ -1,5 +1,5 @@
 import consumer from "./consumer"
-console.log("abc2")
+
 consumer.subscriptions.create("ProgressBeforeConversionChannel", {
   connected() {
     console.log('channel connected');

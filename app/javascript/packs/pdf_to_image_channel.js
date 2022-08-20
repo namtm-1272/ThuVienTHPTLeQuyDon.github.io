@@ -1,5 +1,5 @@
 import consumer from "./consumer"
-console.log("abc")
+
 // This will create a subscription for PdfToImageChannel
 const channel = consumer.subscriptions.create("PdfToImageChannel", {
   connected() {

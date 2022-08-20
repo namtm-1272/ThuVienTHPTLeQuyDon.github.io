@@ -1,10 +1,17 @@
 <div class="admin-page">
     <div> <%= render "admin/static_pages/sidebar" %> </div>
     <div class="account-manage-page">
+    <%= link_to admin_add_user_path do %>
+                        <span class="fa fa-plus"></span>
+                    <% end %>
     <table class="rwd-table">
+    <%= search_form_for [:admin, @q] do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+  <%= f.submit %>
+<% end %>
     <thead>
         <tr>
-            <th>Username</th>
             <th>Name</th>
             <th>Email</th>
             <th>Birthday</th>
@@ -13,19 +20,18 @@
       </tr>
     </thead>
     <tbody>
-        <% @accounts.each do |account| %>
+        <% @users.each do |user| %>
         <tr>
-            <td><%= account.Tk %></td>
-            <td><%= account.name %></td>
-            <td><%= account.email %></td>
-            <td><%= account.birthday %></td>
-            <td><%= account.id_lop ? account.id_lop : "N/A" %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.birthday %></td>
+            <td><%= user.class_user_name ? user.class_user_name : "N/A" %></td>
             <td>
                 <div class="action-btn">
-                    <%= link_to admin_account_path(account) do %>
+                    <%= link_to edit_admin_user_path(user) do %>
                         <span class="fa fa-edit"></span>
                     <% end %>
-                    <%= link_to admin_account_path(account), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
+                    <%= link_to admin_user_path(user), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
                         <span class="fa fa-trash"></span>
                     <% end %>
                 </div>
