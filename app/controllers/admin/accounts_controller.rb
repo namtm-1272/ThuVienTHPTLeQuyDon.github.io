@@ -19,7 +19,6 @@ class Admin::AccountsController < Admin::BaseController
       else 
         flash[:alert] = "Something was wrong"
         render "admin/accounts/show"
-
       end
     end
 

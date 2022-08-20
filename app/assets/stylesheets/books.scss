@@ -200,6 +200,7 @@
     .book-content {
         display: none;
         flex: 1 1;
+        flex-direction: column;
         -webkit-transition: 300ms linear;
         -moz-transition: 300ms linear;
         -o-transition: 300ms linear;

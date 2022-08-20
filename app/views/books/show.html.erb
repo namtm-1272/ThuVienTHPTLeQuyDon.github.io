@@ -30,7 +30,13 @@
             </div>
         </div>
         <div class="book-content" id="content">
-            <%= @book.content %>
+            <% if @book.doc_file_pages.attached? %>
+                <% @book.doc_file_pages.each do |doc_page| %>
+                    <%= image_tag doc_page, class: "doc-page-row", width: "100%" %>
+                <% end %>
+            <% else %>
+                <%= @book.content %>
+            <% end %>
         </div>
     </div>
 </div>
