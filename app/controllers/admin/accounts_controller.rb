@@ -13,10 +13,10 @@ class Admin::AccountsController < Admin::BaseController
 
     def update
       @account = User.find(account_params[:id])
-      if (@account.update(account_params))
+      if @account.update account_params
         flash[:success] = "Successed"
         render "admin/accounts/show"
-      else 
+      else
         flash[:alert] = "Something was wrong"
         render "admin/accounts/show"
       end
