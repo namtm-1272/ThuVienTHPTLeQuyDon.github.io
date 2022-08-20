@@ -21,8 +21,7 @@ class SessionsController < ApplicationController
 
   private
   def redirect
-    user = current_user
-    if user.role != 2
+    unless current_user.student?
       redirect_to admin_root_path
     else
       redirect_to root_url

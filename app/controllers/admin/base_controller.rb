@@ -12,7 +12,7 @@ class Admin::BaseController < ActionController::Base
 
   def check_role_user
     # if current_user.admin?
-    if !admin?
+    if current_user.student?
       flash[:danger] = "you are not admin "
       redirect_to root_path
     end
