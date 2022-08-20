@@ -1,36 +1,18 @@
-<div class="book-information-page-wrapper">
-    <div class="book-information-page">
-        <div class="book-information">
-            <div class="top-content">
-                <div class="image-wrapper">
-                    <img src="<%= @book.image %>" width="100%">
-                </div>
-
-                <div class="book-content-wrapper">
-                    <div class="book-title">
-                        <%= @book.title %>
-                    </div>
-
-                    <div class="book-author">
-                        Tác giả: <%= @book.author %>
-                    </div>
-
-                    <div class="book-subject">
-                        Thể loại: <%= @book.subject %>
-                    </div>
-
-                    <div class="book-describe">
-                        Miêu tả: <%= @book.describe %>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom-content">
-                <button class="read-btn" type="button" onclick="onRead()">Đọc sách</button>
-            </div>
-        </div>
-        <div class="book-content" id="content">
-            <%= @book.content %>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 mx-lg-auto">
+      <h1 class="display-4 text-center"><%= @book.title %></h1>
+      <p class="lead"><%= @book.describe %></p>
     </div>
+  </div>
+  <% if @book.doc_file_pages.attached? %>
+    <div class="row" style="max-height:600px;overflow: auto;">
+      <% @book.doc_file_pages.each do |doc_page| %>
+        <div class="col-lg-12 mx-lg-auto">
+          <%= image_tag doc_page, class: "img-fluid" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <%= link_to 'Back', books_path %>
 </div>
