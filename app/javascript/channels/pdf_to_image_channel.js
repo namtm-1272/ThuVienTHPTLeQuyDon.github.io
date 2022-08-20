@@ -24,7 +24,7 @@ const channel = consumer.subscriptions.create("PdfToImageChannel", {
         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: ${percentage}%" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100">${percentage}%</div>
       `
       // rendering progress bar inside modal popup
-      let progressBar = book.querySelector('#conversion-progress-bar');
+      let progressBar = document.querySelector('#conversion-progress-bar');
 
       console.log($("#conversion-progress-bar").attr("data-last-uploaded-book-id"));
 
