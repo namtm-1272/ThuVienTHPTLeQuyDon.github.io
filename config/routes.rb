@@ -30,9 +30,18 @@ Rails.application.routes.draw do
     post "/add_class", to: "class_users#create"
     get "/add_user", to: "users#new"
     post "/add_user", to: "users#create"
+    get "/add_subject", to: "subjects#new"
+    post "/add_subject", to: "subjects#create"
+    get "/add_category", to: "categories#new"
+    post "/add_category", to: "categories#create"
+    get "/add_link", to: "links#new"
+    post "/add_link", to: "links#create"
     resources :static_pages
     resources :books
     resources :users
     resources :class_users
+    resources :subjects
+    resources :categories
+    resources :links
   end
 end

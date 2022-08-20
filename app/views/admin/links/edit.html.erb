@@ -1,0 +1,17 @@
+<div class="admin-page">
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="form-container">
+    <div class="form row">
+      <div class="edit-account">
+        <p class="form-title">Chỉnh sửa đường dẫn</p>
+        <%= form_for [:admin, @link] do |f| %>
+          <%= f.label :describe %>
+          <%= f.text_field :describe, class: "form-control" %>
+          <%= f.label :link %>
+          <%= f.text_field :link, class: "form-control" %>
+          <%= f.submit "Edit", class: "submit-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

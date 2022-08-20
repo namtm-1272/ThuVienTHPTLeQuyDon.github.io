@@ -1,0 +1,3 @@
+class Category < ApplicationRecord
+  scope :asc_name, ->{order name: :asc}
+end

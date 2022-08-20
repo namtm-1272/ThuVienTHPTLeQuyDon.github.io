@@ -1,0 +1,15 @@
+<div class="admin-page">
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="form-container">
+    <div class="form row">
+      <div class="edit-account">
+        <p class="form-title">Thêm Môn học</p>
+        <%= form_for :subject do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= f.submit "Add", class: "submit-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

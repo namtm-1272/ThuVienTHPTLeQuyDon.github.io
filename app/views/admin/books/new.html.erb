@@ -13,8 +13,10 @@
           <%= f.text_field :subject, class: "form-control" %>
           <%= f.label :describe %>
           <%= f.text_area :describe, class: "form-control" %>
-          <%= f.label :content %>
-          <%= f.text_area :content, class: "form-control" %>
+          <%= f.label :grade %>
+          <%= f.select :grade, options_for_select([["6", "6"],["7", "7"], ["8", "8"], ["9", "9"], ["Mọi lứa tuổi", "mọi lứa tuổi"]]), class: "form-control"%>
+          <%= f.label :category %>
+          <%= f.select :category, options_for_select([["SGK", "SGK"],["Sách tham khảo", "Sách tham khảo"]]), class: "form-control"%>
           <%= f.label :publish_on %>
           <%= f.date_field :publish_on, class: "form-control"%>
           <%= f.label :upload_file %>
@@ -25,4 +27,4 @@
     </div>
   </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-</div>
+  </div>
