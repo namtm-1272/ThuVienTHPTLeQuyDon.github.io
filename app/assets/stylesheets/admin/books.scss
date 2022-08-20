@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 50px;
 }
 
 .book-list {
@@ -118,6 +119,99 @@
         font-size: 28px;
     }
 }
+
+.user_search,
+.search-form-wrapper {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 8px;
+    padding: 8px 0;
+    position: relative;
+    width: 100%;
+
+    input {
+        padding: 8px;
+        height: 40px;
+        width: 100%;
+        line-height: 25px;
+        border-radius: 8px;
+        border: none;
+        outline: 2px solid black !important;
+    }
+
+    input:focus,
+    input:focus-visible,
+    input:active {
+        outline: 2px solid #d1001f !important;
+    }
+
+    input[type=submit],
+    .search-btn {
+        position: absolute;
+        right: 12px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 0;
+        width: 70px;
+        line-height: 20px;
+        height: 20px;
+        border-radius: 6px;
+        border: none;
+        background: #d1001f;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .search-btn {
+        height: 30px;
+    }
+}
+
+.book-detail-page {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1;
+    padding: 50px;
+    gap: 32px;
+
+    .image-wrapper {
+        width: 30%;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        height: fit-content;
+    }
+
+    .detail-section {
+        flex: 1 1;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .book-detail {
+            .header {
+                white-space: nowrap;
+            }
+
+            .book-title {
+                font-size: 24px;
+                font-weight: 700;
+                color: #d1001f;
+            }
+        }
+
+        .functional-btn {
+            .fa {
+                padding: 8px 32px;
+                background: #d1001f;
+                color: #fff;
+                font-size: 24px;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
 
 
 @media (max-width: 1200px) {
