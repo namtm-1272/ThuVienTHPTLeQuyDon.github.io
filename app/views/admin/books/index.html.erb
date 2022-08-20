@@ -6,7 +6,7 @@
         <%= link_to admin_book_path(book) do %>
           <div class="book-item-row">
               <div class="image-wrapper">
-                  <img src="<%= book.image %>" width="100%"/>
+                  <%= image_tag book.doc_file_pages.first %>
               </div>
               <div class="detail-wrapper">
                   <p class="title">
@@ -20,4 +20,5 @@
     </div>
     <%== pagy_nav(@pagy) %>
   </div>
+  
 </div>

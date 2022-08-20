@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/search", to: "books#search"
   post "users", to: "users#update"
   resources :users
-
+  resources :books
   namespace :admin do
     root to: "accounts#index"
     get "/admin", to: "accounts#index"

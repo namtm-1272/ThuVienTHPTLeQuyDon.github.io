@@ -3,7 +3,7 @@
         <div class="book-information">
             <div class="top-content">
                 <div class="image-wrapper">
-                    <img src="<%= @book.image %>" width="100%">
+                    <%= image_tag @book.doc_file_pages.first, width: "100%" %>
                 </div>
 
                 <div class="book-content-wrapper">

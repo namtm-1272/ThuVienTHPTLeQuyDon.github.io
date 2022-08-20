@@ -18,7 +18,7 @@ class Admin::BooksController < Admin::BaseController
         if @book.save
           CreateImagesOfPdfPagesJob.set(wait: 2.seconds).perform_later(@book.id)
           format.js
-          format.html { redirect_to admin_books_path(@book), notice: "book was successfully created." }
+          format.html { redirect_to admin_book_path(@book), notice: "book was successfully created." }
           format.json { render :show, status: :created, location: @book }
         else
           format.js
@@ -29,6 +29,8 @@ class Admin::BooksController < Admin::BaseController
     end
 
     def destroy
+
+      @book = Book.find_by id: params[:id]
       @book.destroy
       respond_to do |format|
         format.html { redirect_to admin_books_url, notice: "book was successfully destroyed." }

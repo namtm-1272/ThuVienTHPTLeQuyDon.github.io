@@ -4,7 +4,7 @@
     <div class="form row">
       <div class="add-book">
         <p class="form-title">Thêm sách</p>
-        <%= form_for :book do |f| %>
+        <%= form_for(:book, remote: true) do |f| %>
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control" %>
           <%= f.label :author %>
@@ -24,4 +24,5 @@
       </div>
     </div>
   </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 </div>
