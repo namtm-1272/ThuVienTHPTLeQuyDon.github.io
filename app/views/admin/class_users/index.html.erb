@@ -1,0 +1,36 @@
+<div class="admin-page">
+    <div> <%= render "admin/static_pages/sidebar" %> </div>
+    <div class="account-manage-page">
+    <%= link_to admin_add_class_path do %>
+                        <span class="fa fa-plus"></span>
+                    <% end %>
+    <table class="rwd-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+            <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @class_users.each do |class_user| %>
+        <tr>
+            <td><%= class_user.name %></td>
+            <td><%= class_user.grade %></td>
+            <td>
+                <div class="action-btn">
+                    <%= link_to edit_admin_class_user_path(class_user) do %>
+                        <span class="fa fa-edit"></span>
+                    <% end %>
+                    <%= link_to admin_class_user_path(class_user), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
+                        <span class="fa fa-trash"></span>
+                    <% end %>
+                </div>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+    <%== pagy_nav(@pagy) %>
+  </div>
+</div>

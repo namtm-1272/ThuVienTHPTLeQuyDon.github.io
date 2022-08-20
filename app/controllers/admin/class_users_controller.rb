@@ -1,0 +1,41 @@
+class Admin::ClassUsersController < Admin::BaseController
+    def index
+      @pagy, @class_users = pagy(ClassUser.all, items: 8)
+    end
+
+    def new
+      @class_user = ClassUser.new
+    end
+
+    def create
+      @class_user = ClassUser.new class_user_params
+    if @class_user.save
+      flash[:success] = "welcome"
+      redirect_to admin_class_users_path
+    else
+      flash[:danger] = "danger"
+      render :new
+    end
+    end
+
+    def edit
+      @class_user = ClassUser.find(params[:id])
+    end
+
+    def update
+      @class_user = ClassUser.find(params[:id])
+      if @class_user.update class_user_params
+        flash[:success] = "Profile updated"
+        redirect_to admin_class_users_path
+      else
+        flash[:danger] = "danger"
+        render :edit
+      end
+    end
+    private
+
+    def class_user_params
+      params.require(:class_user).permit(:id, :name, :grade)
+    end
+
+  end
