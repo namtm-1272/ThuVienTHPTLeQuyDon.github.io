@@ -1,10 +1,10 @@
 <div class="admin-page">
   <div> <%= render "admin/static_pages/sidebar" %> </div>
   <div class="book-manage-page">
-  <%= search_form_for [:admin, @q] do |f| %>
-  <%= f.label :title_cont %>
-  <%= f.search_field :title_cont %>
-  <%= f.submit %>
+    <%= search_form_for [:admin, @q] do |f| %>
+    <%= f.label :title_cont %>
+    <%= f.search_field :title_cont %>
+    <%= f.submit %>
   <% end %>
     <div class="book-list">
       <% @books.each do |book| %>

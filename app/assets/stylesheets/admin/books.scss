@@ -120,6 +120,7 @@
     }
 }
 
+.book_search,
 .user_search,
 .search-form-wrapper {
     display: flex;
@@ -148,13 +149,8 @@
 
     input[type=submit],
     .search-btn {
-        position: absolute;
-        right: 12px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
         padding: 0;
-        width: 70px;
+        width: 100px;
         line-height: 20px;
         height: 20px;
         border-radius: 6px;
@@ -164,7 +160,17 @@
         cursor: pointer;
     }
 
+    input[type=submit] {
+        height: 90%;
+        border: none;
+    }
+
     .search-btn {
+        position: absolute;
+        right: 12px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
         height: 30px;
     }
 }
