@@ -1,11 +1,11 @@
 <div class="admin-page">
     <div> <%= render "admin/static_pages/sidebar" %> </div>
     <div class="account-manage-page">
-    <form class="search-form-wrapper" >
-        <input name="q" type="text" placeholder="Nhập nội dung tìm kiếm" value="<%= params[:q] %>"/>
-        <input type="submit" hidden />
-        <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
-    </form>
+        <%= search_form_for [:admin, @q] do |f| %>
+            <%= f.label :name_cont %>
+            <%= f.search_field :name_cont %>
+            <%= f.submit %>
+        <% end %>
     <table class="rwd-table">
     <thead>
         <tr>

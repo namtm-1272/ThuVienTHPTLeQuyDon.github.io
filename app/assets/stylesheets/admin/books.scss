@@ -120,23 +120,19 @@
     }
 }
 
+.user_search,
 .search-form-wrapper {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 8px;
     padding: 8px 0;
     position: relative;
     width: 100%;
 
-    a {
-        padding: 0;
-    }
-
-
-    img {
-        border-radius: 8px;
-    }
-
     input {
-        padding: 12px;
-        height: 25px;
+        padding: 8px;
+        height: 40px;
         width: 100%;
         line-height: 25px;
         border-radius: 8px;
@@ -150,18 +146,26 @@
         outline: 2px solid #d1001f !important;
     }
 
+    input[type=submit],
     .search-btn {
         position: absolute;
-        right: 0;
+        right: 12px;
         top: 0;
         bottom: 0;
         margin: auto;
+        padding: 0;
         width: 70px;
-        height: 30px;
+        line-height: 20px;
+        height: 20px;
         border-radius: 6px;
         border: none;
         background: #d1001f;
         color: #fff;
+        cursor: pointer;
+    }
+
+    .search-btn {
+        height: 30px;
     }
 }
 
