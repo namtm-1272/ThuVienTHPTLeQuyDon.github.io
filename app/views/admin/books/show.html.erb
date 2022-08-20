@@ -1,19 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 mx-lg-auto">
-      <h1 class="display-4 text-center"><%= @book.title %></h1>
-      <p class="lead"><%= @book.describe %></p>
+<div class="admin-page">
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="book-detail-page">
+    <div class="image-wrapper">
+     <%= image_tag @book.doc_file_pages.first, width: "100%" %>
     </div>
-  </div>
-  <% if @book.doc_file_pages.attached? %>
-    <div class="row" style="max-height:600px;overflow: auto;">
-      <% @book.doc_file_pages.each do |doc_page| %>
-        <div class="col-lg-12 mx-lg-auto">
-          <%= image_tag doc_page, class: "img-fluid" %>
+    <div class="detail-section">
+      <div class="book-detail">
+        <div class="header">
+          <span class="book-title"><%= @book.title %> </span> by <span class="book-author"><%= @book.author %> </span>
         </div>
-      <% end %>
+        <div class="detail">
+          <div class="book-subject">
+            Thể loại: <%= @book.subject %>
+          </div>
+
+          <div class="book-describe">
+            Miêu tả: <%= @book.describe %>
+          </div>
+        </div>
+      </div>
+
+      <div class="functional-btn">
+        <%= link_to admin_book_path(@book), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
+          <span class="fa fa-trash"></span>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-  <%= link_to "Delete", admin_book_path, method: :delete, data: { confirm: "Are you sure?" } %>
-  <%= link_to 'Back', admin_books_path %>
+
+  </div>
 </div>

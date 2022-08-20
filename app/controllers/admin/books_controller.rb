@@ -1,6 +1,8 @@
 class Admin::BooksController < Admin::BaseController
     def index
-      @pagy, @books = pagy(Book.all, items: 8)
+      @query = params[:q] ? params[:q] : "";
+      @result = Book.where("title LIKE ?", "%" + @query + "%")
+      @pagy, @books = pagy(@result, items: 8)
     end
 
     def show
@@ -11,7 +13,7 @@ class Admin::BooksController < Admin::BaseController
         @book = Book.new
     end
     
-
+    
     def create
       @book = Book.new(book_params)
       respond_to do |format|

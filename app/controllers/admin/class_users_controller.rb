@@ -1,6 +1,8 @@
 class Admin::ClassUsersController < Admin::BaseController
     def index
-      @pagy, @class_users = pagy(ClassUser.all, items: 8)
+      @query = params[:q] ? params[:q] : "";
+      @result = ClassUser.where("name LIKE ? OR grade LIKE ?", "%" + @query + "%", "%" + @query + "%")
+      @pagy, @class_users = pagy(@result, items: 8)
     end
 
     def new

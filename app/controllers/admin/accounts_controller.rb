@@ -1,6 +1,8 @@
 class Admin::AccountsController < Admin::BaseController
     def index
-      @pagy, @accounts = pagy(User.all, items: 10)
+      @query = params[:q] ? params[:q] : "";
+      @result = User.where("Tk LIKE ? OR name LIKE ? OR email LIKE ?", "%" + @query + "%", "%" + @query + "%", "%" + @query + "%")
+      @pagy, @accounts = pagy(@result, items: 10)
     end
 
     def show
