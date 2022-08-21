@@ -1,12 +1,74 @@
 <div class="book-page-wrapper">
     <div class="books-page">
         <div class="left-section">
+            <div class="filter-bar" >
+                <form class="filters-form"  method="GET" >
+                <button type="submit" class="sort-btn"><span class="fa fa-filter"></span></button>
+                    <div>
+                        <div class="filter-header">
+                            Sắp xếp theo:
+                        </div>
+                        <%= select_tag "sorts", options_for_select([["Tên A-Z", "title:asc"], ["Tên Z-A", "title:desc"]]), class: 'customer-select'  %>
+                    </div>
+                    <div class="multi-select">
+                        <div class="select-box-header">
+                            Lọc theo môn học
+                        </div>
+                        <div class="checkbox-item-wrapper" id="checkboxes">
+                            <label>
+                                <input 
+                                    type="checkbox" 
+                                    <%= @subject.length > 0 ? "" : "checked" %>
+                                    onclick="toggleCheckbox(this, 'subject')"
+                                />
+                                Chọn/Bỏ chọn tất cả
+                            </label>
+                            <% @subject_list.each do |s| %>
+                            <label for="<%= s.id %>">
+                                <input 
+                                    type="checkbox"
+                                    class="subject-checkbox-item" 
+                                    name="subject[]" 
+                                    value="<%= s.id %>" 
+                                    <%= (@subject.length == 0 || @subject.include?(s.id.to_s)) ? "checked" : "" %>
+                                />
+                                <%= s.name %>
+                            </label>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div class="multi-select">
+                        <div class="select-box-header">
+                            Lọc theo danh mục
+                        </div>
+                        <div class="checkbox-item-wrapper" id="checkboxes">
+                            <label>
+                                <input 
+                                    type="checkbox" 
+                                    <%= @category.length > 0 ? "" : "checked" %>
+                                    onclick="toggleCheckbox(this, 'category')"
+                                />
+                                Chọn/Bỏ chọn tất cả
+                            </label>
+                            <% @category_list.each do |s| %>
+                            <label for="<%= s.id %>">
+                                <input 
+                                    type="checkbox"
+                                    class="category-checkbox-item" 
+                                    name="category[]" 
+                                    value="<%= s.id %>" 
+                                    <%= (@category.length == 0 || @category.include?(s.id.to_s)) ? "checked" : "" %>
+                                />
+                                <%= s.name %>
+                            </label>
+                            <% end %>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="right-section">
-            <form class="sorts-form" action="/books">
-                Sắp xếp theo: <%= select_tag "sorts", options_for_select([["Tên A-Z", "title:asc"], ["Tên Z-A", "title:desc"]]), class: 'customer-select'  %>
-                <button type="submit" class="sort-btn"><span class="fa fa-filter"></span></button>
-            </form>
+
             <div class="book-list-container">
                 <div class="book-list">
                     <% @books.each do |book| %>
@@ -38,3 +100,4 @@
         </div>
     </div>
 </div>
+<%= javascript_pack_tag "books" %>
