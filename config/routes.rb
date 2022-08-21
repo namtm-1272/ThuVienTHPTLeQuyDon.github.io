@@ -36,8 +36,11 @@ Rails.application.routes.draw do
     post "/add_category", to: "categories#create"
     get "/add_link", to: "links#new"
     post "/add_link", to: "links#create"
+    get "/add_local_book", to: "local_books#new"
+    post "/add_local_book", to: "local_books#create"
     resources :static_pages
     resources :books
+    resources :local_books
     resources :users
     resources :class_users
     resources :subjects

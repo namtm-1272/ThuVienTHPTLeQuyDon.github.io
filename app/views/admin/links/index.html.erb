@@ -1,34 +1,33 @@
 <div class="admin-page">
-    <div> <%= render "admin/static_pages/sidebar" %> </div>
-    <div class="account-manage-page">
-
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="account-manage-page">
     <table class="rwd-table">
-    <thead>
+      <thead>
         <tr>
-            <th>Describe</th>
-            <th>Link</th>
-            <th></th>
-      </tr>
-    </thead>
-    <tbody>
+          <th>Miêu tả</th>
+          <th>Link</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
         <% @links.each do |link| %>
-        <tr>
+          <tr>
             <td><%= link.describe %></td>
             <td><%= link.link %></td>
             <td>
-                <div class="action-btn">
-                    <%= link_to edit_admin_link_path(link) do %>
-                        <span class="fa fa-edit"></span>
-                    <% end %>
-                    <%= link_to admin_link_path(link), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
-                        <span class="fa fa-trash"></span>
-                    <% end %>
-                </div>
+              <div class="action-btn">
+                <%= link_to edit_admin_link_path(link) do %>
+                  <span class="fa fa-edit"></span>
+                <% end %>
+                <%= link_to admin_link_path(link), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
+                  <span class="fa fa-trash"></span>
+                <% end %>
+              </div>
             </td>
-        </tr>
+          </tr>
         <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
     <%== pagy_nav(@pagy) %>
   </div>
 </div>

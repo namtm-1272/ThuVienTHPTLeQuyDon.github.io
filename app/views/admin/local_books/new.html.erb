@@ -1,0 +1,22 @@
+<div class="admin-page">
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="form-container">
+    <div class="form row">
+      <div class="edit-account">
+        <p class="form-title">Thêm sách</p>
+        <%= form_for [:admin, @local_book] do |f| %>
+          <%= render "admin/shared/error_messages", object: f.object %>
+          <%= f.label :code, "Mã " %>
+          <%= f.text_field :code, class: "form-control" %>
+          <%= f.label :name, "Tên sách" %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :subject, "Môn học" %>
+          <%= collection_select(:local_book, :subject_id, @subjects, :id, :name) %>
+          <%= f.label :category, "Loại sách" %>
+          <%= collection_select(:local_book, :category_id, @categories, :id, :name) %>
+          <%= f.submit "Add", class: "submit-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

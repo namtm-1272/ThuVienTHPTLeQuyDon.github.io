@@ -1,6 +1,11 @@
 module SessionsHelper
   def log_in user
     session[:user_id] = user.id
+    if user.student?
+      @accesses = Access.first
+      num_access = @accesses.num_access + 1
+      @accesses.update_attribute :num_access, num_access
+    end
   end
 
   def current_user

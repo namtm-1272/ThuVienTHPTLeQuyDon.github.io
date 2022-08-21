@@ -4,10 +4,11 @@
     <div class="form row">
       <div class="edit-account">
         <p class="form-title">Thêm loại sách</p>
-        <%= form_for :category do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-        <%= f.submit "Add", class: "submit-btn" %>
+        <%= form_for [:admin, @category] do |f| %>
+          <%= render "admin/shared/error_messages", object: f.object %>
+          <%= f.label :name, "Tên" %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.submit "Add", class: "submit-btn" %>
         <% end %>
       </div>
     </div>
