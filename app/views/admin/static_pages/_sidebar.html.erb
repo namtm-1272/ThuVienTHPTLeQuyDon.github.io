@@ -1,35 +1,44 @@
 <div class="sidebar">
-    <base href="admin">
-    <h3 class="title">Menu</h3>
-    <div class="sidebar-button menu">
-        <span class="fa fa-user"></span> Quản lý tài khoản
-    </div>
-    <%= link_to "Danh sách tài khoản", admin_users_path, class: "sidebar-button sub-menu"%>
-        <%= link_to "Thêm tài khoản", admin_add_user_path, class: "sidebar-button sub-menu"%>
-    <div class="sidebar-button menu">
-       <span class="fa fa-building"></span> Quản lý lớp
-    </div>
-    <%= link_to "Danh sách lớp", admin_class_users_path, class: "sidebar-button sub-menu"%>
-    <%= link_to "Thêm lớp", admin_add_class_path, class: "sidebar-button sub-menu"%>
-    <div class="sidebar-button menu">
-       <span class="fa fa-book"></span> Quản lý môn học
-    </div>
-    <%= link_to "Danh sách môn học", admin_subjects_path, class: "sidebar-button sub-menu"%>
-    <%= link_to "Thêm môn học", new_admin_subject_path, class: "sidebar-button sub-menu"%>
-    <div class="sidebar-button menu">
-       <span class="fa fa-book"></span> Quản lý loại sách
-    </div>
-    <%= link_to "Danh sách loại sách", admin_categories_path, class: "sidebar-button sub-menu"%>
-    <%= link_to "Thêm loại sách", new_admin_category_path, class: "sidebar-button sub-menu"%>
-    <div class="sidebar-button menu">
-       <span class="fa fa-book"></span> Quản lý sách
-    </div>
-    <%= link_to "Danh sách sách", admin_books_path, class: "sidebar-button sub-menu"%>
-    <%= link_to "Thêm sách", admin_add_book_path, class: "sidebar-button sub-menu"%>
-    <%= link_to "Đăng xuất", logout_path, method: :delete, class: "sidebar-button"%>
-    <div class="sidebar-button menu">
-       <span class="fa fa-book"></span> Quản lý đường dẫn thư viện mở rộng
-    </div>
-    <%= link_to "Danh sách đường dẫn", admin_links_path, class: "sidebar-button sub-menu"%>
-    <%= link_to "Thêm đường dẫn", new_admin_link_path, class: "sidebar-button sub-menu"%>
+   <base href="admin">
+   <h3 class="title">Menu</h3>
+   <div class="sidebar-button menu" onclick="onMenuClick('account')">
+      <span class="fa fa-user"></span> Quản lý tài khoản
+   </div>
+   <%= link_to "Danh sách tài khoản", admin_users_path, class: "sidebar-button sub-menu account"%>
+   <%= link_to "Thêm tài khoản", admin_add_user_path, class: "sidebar-button sub-menu account"%>
+
+   <div class="sidebar-button menu" onclick="onMenuClick('class')">
+      <span class="fa fa-building"></span> Quản lý lớp
+   </div>
+   <%= link_to "Danh sách lớp", admin_class_users_path, class: "sidebar-button sub-menu class"%>
+   <%= link_to "Thêm lớp", admin_add_class_path, class: "sidebar-button sub-menu class"%>
+
+   <div class="sidebar-button menu" onclick="onMenuClick('book')">
+      <span class="fa fa-book"></span> Quản lý sách
+   </div>
+   <%= link_to "Danh sách sách", admin_books_path, class: "sidebar-button sub-menu book"%>
+   <%= link_to "Thêm sách", admin_add_book_path, class: "sidebar-button sub-menu book"%>
+
+   <div class="sidebar-button menu" onclick="onMenuClick('subject')">
+      <span class="fa fa-book"></span> Quản lý môn học
+   </div>
+   <%= link_to "Danh sách môn học", admin_subjects_path, class: "sidebar-button sub-menu subject"%>
+   <%= link_to "Thêm môn học", new_admin_subject_path, class: "sidebar-button sub-menu subject"%>
+
+   <div class="sidebar-button menu" onclick="onMenuClick('category')">
+      <span class="fa fa-book"></span> Quản lý loại sách
+   </div>
+   <%= link_to "Danh sách loại sách", admin_categories_path, class: "sidebar-button sub-menu category"%>
+   <%= link_to "Thêm loại sách", new_admin_category_path, class: "sidebar-button sub-menu category"%>
+
+   <div class="sidebar-button menu" onclick="onMenuClick('link')">
+      <span class="fa fa-book"></span> Quản lý đường dẫn thư viện mở rộng
+   </div>
+   <%= link_to "Danh sách đường dẫn", admin_links_path, class: "sidebar-button sub-menu link"%>
+   <%= link_to "Thêm đường dẫn", new_admin_link_path, class: "sidebar-button sub-menu link"%>
+
+   <div class="sidebar-button menu">
+      <%= link_to "Đăng xuất", logout_path, method: :delete, class: "sidebar-button"%>
+   </div>
 </div>
+<%= javascript_pack_tag "menu" %>

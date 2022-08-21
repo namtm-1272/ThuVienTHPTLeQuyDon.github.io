@@ -16,7 +16,15 @@
                     </div>
 
                     <div class="book-subject">
-                        Thể loại: <%= @book.subject %>
+                        Môn học: <%= @book.subject.name %>
+                    </div>
+
+                    <div class="book-subject">
+                        Lớp: <%= @book.grade %>
+                    </div>
+
+                    <div class="book-describe">
+                        Danh mục: <%= @book.category.name %>
                     </div>
 
                     <div class="book-describe">

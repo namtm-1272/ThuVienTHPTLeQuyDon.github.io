@@ -120,18 +120,22 @@
     }
 }
 
+.container {
+    width: 100%;
+}
+
 .book_search,
 .user_search,
 .search-form-wrapper {
     display: flex;
-    align-items: center;
-    white-space: nowrap;
+    align-items: flex-end;
     gap: 8px;
     padding: 8px 0;
     position: relative;
     width: 100%;
 
-    input {
+    input,
+    select {
         padding: 8px;
         height: 40px;
         width: 100%;
@@ -141,9 +145,17 @@
         outline: 2px solid black !important;
     }
 
+    option {
+        font-size: 14px;
+        padding: 8px;
+    }
+
     input:focus,
     input:focus-visible,
-    input:active {
+    input:active,
+    select:focus,
+    select:focus-visible,
+    select:active {
         outline: 2px solid #d1001f !important;
     }
 
@@ -152,7 +164,6 @@
         padding: 0;
         width: 100px;
         line-height: 20px;
-        height: 20px;
         border-radius: 6px;
         border: none;
         background: #d1001f;
@@ -161,7 +172,6 @@
     }
 
     input[type=submit] {
-        height: 90%;
         border: none;
     }
 
@@ -217,6 +227,49 @@
         }
     }
 }
+
+.col {
+    &-10 {
+        width: 100%;
+    }
+
+    &-9 {
+        width: 90%;
+    }
+
+    &-8 {
+        width: 80%;
+    }
+
+    &-7 {
+        width: 70%;
+    }
+
+    &-6 {
+        width: 60%;
+    }
+
+    &-5 {
+        width: 50%;
+    }
+
+    &-4 {
+        width: 40%;
+    }
+
+    &-3 {
+        width: 30%;
+    }
+
+    &-2 {
+        width: 20%;
+    }
+
+    &-1 {
+        width: 10%;
+    }
+}
+
 
 
 
