@@ -77,6 +77,25 @@
             </div>
           </div>
         </div>
+
+        <div class="card total-categories">
+          <div class="card-left-section">
+            <div class="card-header">
+              Tổng số  truy cập người dùng
+            </div>
+            <div class="card-total">
+              <%= @accesses.num_access %>
+            </div>
+            <div class="card-current-date">
+              <%= Time.now.strftime("%d/%m/%Y") %>
+            </div>
+          </div>
+          <div class="card-right-section">
+            <div class="card-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/3843/3843517.png" width="100">
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="admin-section">
