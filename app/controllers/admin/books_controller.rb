@@ -1,5 +1,6 @@
 class Admin::BooksController < Admin::BaseController
     def index
+      @categories = Category.asc_name
       @q = Book.asc_title.ransack(params[:q])
       @pagy, @books = pagy(@q.result, items: 8)
     end
@@ -9,7 +10,9 @@ class Admin::BooksController < Admin::BaseController
     end
 
     def new
-        @book = Book.new
+      @subjects = Subject.asc_name
+      @categories = Category.asc_name
+      @book = Book.new
     end
 
 
@@ -47,6 +50,6 @@ class Admin::BooksController < Admin::BaseController
 
     def book_params
       params.require(:book).permit(:id, :title, :author,
-                                    :subject, :grade, :category, :describe, :publish_on, :doc_file)
+                                    :subject_id, :grade, :category_id, :describe, :publish_on, :doc_file)
     end
   end
