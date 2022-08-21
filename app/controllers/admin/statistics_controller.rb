@@ -4,8 +4,8 @@ class Admin::StatisticsController < Admin::BaseController
       @totalBooks = Book.count
       @totalSubjects = Subject.count
       @totalCategories = Category.count
-
+      @accesses = Access.first
+      
       @adminList = User.where("role = 0")
     end
   end
-  
