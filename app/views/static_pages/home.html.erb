@@ -24,7 +24,7 @@
             <div class="book-list-header">
                 Sách mới nhất <span><a href="/books">Xem thêm</a></span>
             </div>
-            <div class="book-list">
+            <div class="book-list home">
                 <% @books.each do |book| %>
                     <a href="<%= "books/show?id=" + book.id.to_s %>">
                         <div class="book-item-row">
@@ -39,6 +39,37 @@
                                 </p>
                                 <p class="describe"><%= book.describe %></p>
                             </div>
+                        </div>
+                    </a>
+                <% end %>
+            </div>
+        </div>
+        <div class="subject-list-container">
+            <div class="subject-list-header">
+                Danh sách môn học <span><a href="/books">Xem thêm</a></span>
+            </div>
+            <div class="subject-list">
+                <% @subjects.each do |subject| %>
+                    <a href="<%= "books?subject[]=" + subject.id.to_s %>">
+                        <div class="subject-item-row">
+                            <%= subject.name %>
+                        </div>
+                    </a>
+                <% end %>
+            </div>
+        </div>
+        <div class="category-list-container">
+            <div class="category-list-header">
+                Danh mục sách <span><a href="/books">Xem thêm</a></span>
+            </div>
+            <div class="category-list">
+                <% @categories.each do |category| %>
+                    <a href="<%= "books?category[]=" + category.id.to_s %>">
+                        <div class="category-item-row">
+                            <div class="category-image">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3843/3843517.png" width="100">
+                            </div>
+                            <%= category.name %>
                         </div>
                     </a>
                 <% end %>
