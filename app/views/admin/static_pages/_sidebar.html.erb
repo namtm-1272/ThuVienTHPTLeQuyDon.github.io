@@ -7,6 +7,8 @@
    <%= link_to "Danh sách tài khoản", admin_users_path, class: "sidebar-button sub-menu account"%>
    <%= link_to "Thêm tài khoản", admin_add_user_path, class: "sidebar-button sub-menu account"%>
 
+   <%= link_to "Thống kê", admin_statistics_path, class: "sidebar-button"%>
+
    <div class="sidebar-button menu" onclick="onMenuClick('class')">
       <span class="fa fa-building"></span> Quản lý lớp
    </div>
@@ -43,8 +45,6 @@
    <%= link_to "Danh sách đường dẫn", admin_links_path, class: "sidebar-button sub-menu link"%>
    <%= link_to "Thêm đường dẫn", new_admin_link_path, class: "sidebar-button sub-menu link"%>
 
-   <div class="sidebar-button menu">
-      <%= link_to "Đăng xuất", logout_path, method: :delete, class: "sidebar-button"%>
-   </div>
+   <%= link_to "Đăng xuất", logout_path, method: :delete, class: "sidebar-button"%>
 </div>
 <%= javascript_pack_tag "menu" %>

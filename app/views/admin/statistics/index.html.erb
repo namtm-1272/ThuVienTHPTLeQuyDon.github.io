@@ -1,0 +1,111 @@
+<div class="admin-page">
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+    <div class="statistics-page">
+      <div class="total-section">
+        <div class="card total-users">
+          <div class="card-left-section">
+            <div class="card-header">
+              Tổng số người dùng
+            </div>
+            <div class="card-total">
+              <%= @totalUsers %>
+            </div>
+            <div class="card-current-date">
+              <%= Time.now.strftime("%d/%m/%Y") %>
+            </div>
+          </div>
+          <div class="card-right-section">
+            <div class="card-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/166/166258.png" width="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="card total-books">
+          <div class="card-left-section">
+            <div class="card-header">
+              Tổng số  sách
+            </div>
+            <div class="card-total">
+              <%= @totalBooks %>
+            </div>
+            <div class="card-current-date">
+              <%= Time.now.strftime("%d/%m/%Y") %>
+            </div>
+          </div>
+          <div class="card-right-section">
+            <div class="card-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1903/1903162.png" width="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="card total-subjects">
+          <div class="card-left-section">
+            <div class="card-header">
+              Tổng số  môn học
+            </div>
+            <div class="card-total">
+              <%= @totalSubjects %>
+            </div>
+            <div class="card-current-date">
+              <%= Time.now.strftime("%d/%m/%Y") %>
+            </div>
+          </div>
+          <div class="card-right-section">
+            <div class="card-icon">
+              <img src="https://icon-library.com/images/subject-icon/subject-icon-5.jpg" width="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="card total-categories">
+          <div class="card-left-section">
+            <div class="card-header">
+              Tổng số  danh mục
+            </div>
+            <div class="card-total">
+              <%= @totalCategories %>
+            </div>
+            <div class="card-current-date">
+              <%= Time.now.strftime("%d/%m/%Y") %>
+            </div>
+          </div>
+          <div class="card-right-section">
+            <div class="card-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/3843/3843517.png" width="100">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-section">
+        <div class="admin-list">
+        <% @adminList.each do |admin| %>
+          <div class="user-card">
+            <div class="avatar">
+              <img src="https://cdn-icons-png.flaticon.com/512/147/147142.png" width="100">
+            </div>
+
+            <div class="info name">
+              Admin: <%= admin.name %>
+            </div>
+
+            <div class="info email">
+              <%= admin.email %>
+            </div>
+
+            <div class="info class">
+              <%= ClassUser.find(admin.class_user_id).name %>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+
+      <div class="book-section">
+        <!-- Add most read books -->
+      </div>
+    </div>
+  </div>
+</div>
