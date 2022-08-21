@@ -39,6 +39,10 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find(params[:id])
+    end
+
+    def read
+        @book = Book.find(params[:id])
         num_watch = @book.num_watch + 1
         @book.update_attribute :num_watch, num_watch
     end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'books/show'
   get 'books/create'
   get 'books/destroy'
+  post 'books/read', to: "books#read"
   root "static_pages#home"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"

@@ -1,7 +1,15 @@
-onRead = () => {
+onRead = (evt, id) => {
+  evt.disabled = true;
   document.querySelector(".book-content#content").style.display = "flex";
   document.querySelector(".book-information").style.maxWidth = "unset";
   document.querySelector(".book-information").style.width = "30%";
+
+  $.ajax({
+    url: "read",
+    type: "POST",
+    data: { id: id },
+    dataType: "json",
+  });
 };
 
 toggleCheckbox = (source, target) => {
