@@ -16,18 +16,99 @@
         max-width: 1120px;
     }
 
-    .book-list-header {
+    .book-list-header,
+    .category-list-header,
+    .subject-list-header {
         width: 100%;
         padding: 16px;
         background: #d1001f;
         color: #fff;
     }
 
-    .book-list {
+    .book-list,
+    .category-list,
+    .subject-list {
         background: #fff;
         padding: 16px;
         margin: 0;
     }
+
+
+}
+
+.category-list-container {
+    padding: 16px 0;
+
+    .category-list-header {
+        font-size: 24px;
+        font-weight: 700;
+        background: #7132c4;
+
+        a {
+            font-size: 12px;
+            color: #ddd;
+            text-decoration: none;
+        }
+    }
+
+    .category-list {
+        display: flex;
+        justify-content: space-around;
+
+        .category-item-row {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        a {
+            font-size: 18px;
+            color: #7132c4;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    }
+}
+
+.subject-list-container {
+    padding: 16px 0;
+
+    .subject-list-header {
+        font-size: 24px;
+        font-weight: 700;
+        background: #06af8a;
+
+        a {
+            font-size: 12px;
+            color: #ddd;
+            text-decoration: none;
+        }
+    }
+
+    .subject-list {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        white-space: nowrap;
+        gap: 32px;
+
+        a {
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    }
+
+    .subject-item-row {
+        background-color: #06af8a;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
+    }
+
 }
 
 .slide-promotion {
@@ -111,5 +192,26 @@
         to {
             opacity: 1;
         }
+    }
+}
+
+@media (max-width: 880px) {
+    .book-list.home {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 660px) {
+
+    .book-list.home {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+    .book-list.home {
+        grid-template-columns: repeat(1, 1fr) !important;
     }
 }
