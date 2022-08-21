@@ -1,0 +1,54 @@
+<div class="admin-page">
+    <div> <%= render "admin/static_pages/sidebar" %> </div>
+    <div class="account-manage-page">
+    <div class="container">
+      <%= search_form_for [:admin, @q] do |f| %>
+      <div class="col-4">
+        <%= f.label :name_cont %>
+        <%= f.search_field :name_cont %>
+      </div>
+      <div class="col-2">
+        <%= f.label :category_id_eq %>
+        <%= f.select :category_id_eq, Category.asc_name.collect {|category| [category.name, category.id]}, include_blank: true , class: "form-control"%>
+      </div>
+      <div class="col-2">
+        <%= f.label :subject_id_eq %>
+        <%= f.select :subject_id_eq, Subject.asc_name.collect {|subject| [subject.name, subject.id]}, include_blank: true , class: "form-control"%>
+      </div>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <table class="rwd-table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Category</th>
+            <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @local_books.each do |local_book| %>
+        <tr>
+            <td><%= local_book.code %></td>
+            <td><%= local_book.name %></td>
+            <td><%= local_book.subject_name %></td>
+            <td><%= local_book.category_name %></td>
+            <td>
+                <div class="action-btn">
+                    <%= link_to edit_admin_local_book_path(local_book) do %>
+                        <span class="fa fa-edit"></span>
+                    <% end %>
+                    <%= link_to admin_local_book_path(local_book), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
+                        <span class="fa fa-trash"></span>
+                    <% end %>
+                </div>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+    <%== pagy_nav(@pagy) %>
+  </div>
+</div>
