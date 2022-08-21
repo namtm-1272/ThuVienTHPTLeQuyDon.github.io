@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
   def show
     @user = User.find(params[:id])
   end
@@ -31,11 +32,15 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+
   def update_params
     params.required(:user).permit(:id, :password, :name, :birthday, :email)
   end
 
   def user_params
-    params.required(:user).permit(:Tk, :password, :name, :birthday, :email, :role, :class_user_id)
+    params.required(:user).permit(:Tk, :password, :name, :birthday, :email, :class_user_id)
   end
+
+
 end

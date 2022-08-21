@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   enum role: {admin: 0, teacher: 1, student: 2}
+  ransacker :role, formatter: proc {|v| roles[v]} do |parent|
+    parent.table[:role]
+  end
 
   belongs_to :class_user
 

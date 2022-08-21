@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+    before_action :logged_in_user, only: [:show]
     BOOKS_PER_PAGE = 8
 
     def index
