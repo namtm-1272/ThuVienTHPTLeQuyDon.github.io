@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   resources :users
   resources :books
   namespace :admin do
-    root to: "users#index"
-    get "/admin", to: "users#index"
+    root to: "statistics#index"
+    get "/admin", to: "statistics#index"
     get "/books", to: "books#index"
     post "/books/:id", to: "books#update"
     get "/add_book", to: "books#new"
@@ -43,5 +43,6 @@ Rails.application.routes.draw do
     resources :subjects
     resources :categories
     resources :links
+    resources :statistics
   end
 end
