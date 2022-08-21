@@ -6,8 +6,10 @@
       <%= f.search_field :title_cont %>
       <%= f.label :grade_cont %>
       <%= f.select :grade_cont, options_for_select([["",""],["6", "6"],["7", "7"], ["8", "8"], ["9","9"], ["Mọi lứa tuổi"],["Mọi lứa tuổi"]]), class: "form-control"%>
-      <%= f.label :category %>
-      <%= f.select :category, options_for_select([["",""],["SGK", "SGK"],["Sách tham khảo", "Sách tham khảo"]]), class: "form-control"%>
+      <%= f.label :subject_id %>
+      <%= f.select :subject_id, options_for_select(@subject_options), class: "form-control"%>
+      <%= f.label :category_id %>
+      <%= f.select :category_id, options_for_select(@category_options), class: "form-control"%>
       <%= f.submit %>
     <% end %>
     <%= link_to "All", admin_books_path  %>
