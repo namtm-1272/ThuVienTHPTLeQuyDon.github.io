@@ -1,50 +1,43 @@
 <div class="book-information-page-wrapper">
-    <div class="book-information-page">
-        <div class="book-information">
-            <div class="top-content">
-                <div class="image-wrapper">
-                    <%= image_tag @book.doc_file_pages.first, width: "100%" %>
-                </div>
-
-                <div class="book-content-wrapper">
-                    <div class="book-title">
-                        <%= @book.title %>
-                    </div>
-
-                    <div class="book-author">
-                        Tác giả: <%= @book.author %>
-                    </div>
-
-                    <div class="book-subject">
-                        Môn học: <%= @book.subject.name %>
-                    </div>
-
-                    <div class="book-subject">
-                        Lớp: <%= @book.grade %>
-                    </div>
-
-                    <div class="book-describe">
-                        Danh mục: <%= @book.category.name %>
-                    </div>
-
-                    <div class="book-describe">
-                        Miêu tả: <%= @book.describe %>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom-content">
-                <button class="read-btn" type="button" onclick="onRead()">Đọc sách</button>
-            </div>
+  <div class="book-information-page">
+    <div class="book-information">
+      <div class="top-content">
+        <div class="image-wrapper">
+          <%= image_tag @book.doc_file_pages.first, width: "100%" %>
         </div>
-        <div class="book-content" id="content">
-            <% if @book.doc_file_pages.attached? %>
-                <% @book.doc_file_pages.each do |doc_page| %>
-                    <%= image_tag doc_page, class: "doc-page-row", width: "100%" %>
-                <% end %>
-            <% else %>
-                <%= @book.content %>
-            <% end %>
+        <div class="book-content-wrapper">
+          <div class="book-title">
+            <%= @book.title %>
+          </div>
+          <div class="book-author">
+            Tác giả: <%= @book.author %>
+          </div>
+          <div class="book-subject">
+            Môn học: <%= @book.subject.name %>
+          </div>
+          <div class="book-subject">
+            Lớp: <%= @book.grade %>
+          </div>
+          <div class="book-describe">
+            Danh mục: <%= @book.category.name %>
+          </div>
+          <div class="book-describe">
+            Miêu tả: <%= @book.describe %>
+          </div>
         </div>
+      </div>
+      <div class="bottom-content">
+        <button class="read-btn" type="button" onclick="onRead()">Đọc sách</button>
+      </div>
     </div>
+    <div class="book-content" id="content">
+      <% if @book.doc_file_pages.attached? %>
+        <% @book.doc_file_pages.each do |doc_page| %>
+          <%= image_tag doc_page, class: "doc-page-row", width: "100%" %>
+        <% end %>
+      <% else %>
+        <%= @book.content %>
+      <% end %>
+    </div>
+  </div>
 </div>

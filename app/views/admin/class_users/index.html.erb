@@ -1,38 +1,38 @@
 <div class="admin-page">
-    <div> <%= render "admin/static_pages/sidebar" %> </div>
-    <div class="account-manage-page">
-        <form class="search-form-wrapper" >
-        <input name="q" type="text" placeholder="Nhập nội dung tìm kiếm" value="<%= params[:q] %>"/>
-        <input type="submit" hidden />
-        <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="account-manage-page">
+    <form class="search-form-wrapper" >
+      <input name="q" type="text" placeholder="Nhập nội dung tìm kiếm" value="<%= params[:q] %>"/>
+      <input type="submit" hidden />
+      <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
     </form>
     <table class="rwd-table">
-    <thead>
+      <thead>
         <tr>
-            <th>Name</th>
-            <th>Grade</th>
-            <th></th>
-      </tr>
-    </thead>
-    <tbody>
+          <th>Tên</th>
+          <th>Khối</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
         <% @class_users.each do |class_user| %>
-        <tr>
+          <tr>
             <td><%= class_user.name %></td>
             <td><%= class_user.grade %></td>
             <td>
-                <div class="action-btn">
-                    <%= link_to edit_admin_class_user_path(class_user) do %>
-                        <span class="fa fa-edit"></span>
-                    <% end %>
-                    <%= link_to admin_class_user_path(class_user), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
-                        <span class="fa fa-trash"></span>
-                    <% end %>
-                </div>
+              <div class="action-btn">
+                <%= link_to edit_admin_class_user_path(class_user) do %>
+                  <span class="fa fa-edit"></span>
+                <% end %>
+                <%= link_to admin_class_user_path(class_user), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
+                  <span class="fa fa-trash"></span>
+                <% end %>
+              </div>
             </td>
-        </tr>
+          </tr>
         <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
     <%== pagy_nav(@pagy) %>
   </div>
 </div>

@@ -5,9 +5,10 @@
       <div class="edit-account">
         <p class="form-title">Chỉnh sửa loại sách</p>
         <%= form_for [:admin, @category] do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-        <%= f.submit "Edit", class: "submit-btn" %>
+          <%= render "admin/shared/error_messages", object: f.object %>
+          <%= f.label :name, "Tên" %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.submit "Edit", class: "submit-btn" %>
         <% end %>
       </div>
     </div>

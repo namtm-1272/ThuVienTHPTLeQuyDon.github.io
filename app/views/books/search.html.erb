@@ -1,39 +1,39 @@
 <div class="book-page-wrapper">
-    <div class="books-page">
-        <div class="result-title">
-        Tìm thấy <span class="result-count">
-            <%= @totalResult %>
-        </span> kết quả với từ khóa <span class="result-query">
-            <%= @query %>
-        </span>
-        </div>
-        <div class="book-list-container">
-            <div class="book-list">
-                <% @books.each do |book| %>
-                    <a href="<%= "books/show?id=" + book.id.to_s %>">
-                        <div class="book-item-row">
-                            <div class="image-wrapper">
-                                    <%= image_tag book.doc_file_pages.first, width: "100%" %>
-                                <div class="see-detail">Xem chi tiết</div>
-                            </div>
-                            <div class="detail-wrapper">
-                                <p class="title">
-                                    <%= book.title %>
-                                    <span class="author">by <%= book.author %></span>
-                                </p>
-                                <p class="describe"><%= book.describe %></p>
-                            </div>
-                        </div>
-                    </a>
-                <% end %>
-            </div>
-            <div class="pagination">
-                <% if (@page > 1) %><a href="/search?q=<%= @query %>&page=<%= @page - 1%>">&laquo;</a><% end %>
-                <% for i in (1..@totalPage) do %>
-                <a href="/search?q=<%= @query %>&page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
-                <% end %>
-                <% if (@page < @totalPage) %><a href="/search?q=<%= @query %>&page=<%= @page + 1 %>">&raquo;</a><% end %>
-            </div>
-        </div>
+  <div class="books-page">
+    <div class="result-title">
+      Tìm thấy <span class="result-count">
+        <%= @totalResult %>
+      </span> kết quả với từ khóa <span class="result-query">
+        <%= @query %>
+      </span>
     </div>
+    <div class="book-list-container">
+      <div class="book-list">
+        <% @books.each do |book| %>
+          <a href="<%= "books/show?id=" + book.id.to_s %>">
+            <div class="book-item-row">
+              <div class="image-wrapper">
+                <%= image_tag book.doc_file_pages.first, width: "100%" %>
+                <div class="see-detail">Xem chi tiết</div>
+              </div>
+              <div class="detail-wrapper">
+                <p class="title">
+                  <%= book.title %>
+                  <span class="author">by <%= book.author %></span>
+                </p>
+                <p class="describe"><%= book.describe %></p>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+      <div class="pagination">
+        <% if (@page > 1) %><a href="/search?q=<%= @query %>&page=<%= @page - 1%>">&laquo;</a><% end %>
+        <% for i in (1..@totalPage) do %>
+          <a href="/search?q=<%= @query %>&page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
+        <% end %>
+        <% if (@page < @totalPage) %><a href="/search?q=<%= @query %>&page=<%= @page + 1 %>">&raquo;</a><% end %>
+      </div>
+    </div>
+  </div>
 </div>
