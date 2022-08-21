@@ -1,18 +1,27 @@
 <div class="admin-page">
   <div> <%= render "admin/static_pages/sidebar" %> </div>
   <div class="book-manage-page">
-    <%= search_form_for [:admin, @q] do |f| %>
-      <%= f.label :title_cont %>
-      <%= f.search_field :title_cont %>
-      <%= f.label :grade_cont %>
-      <%= f.select :grade_cont, options_for_select([["",""],["6", "6"],["7", "7"], ["8", "8"], ["9","9"], ["Mọi lứa tuổi"],["Mọi lứa tuổi"]]), class: "form-control"%>
-      <%= f.label :subject_id %>
-      <%= f.select :subject_id, options_for_select(@subject_options), class: "form-control"%>
-      <%= f.label :category_id %>
-      <%= f.select :category_id, options_for_select(@category_options), class: "form-control"%>
-      <%= f.submit %>
-    <% end %>
-    <%= link_to "All", admin_books_path  %>
+    <div class="container">
+      <%= search_form_for [:admin, @q] do |f| %>
+      <div class="col-4">
+        <%= f.label :title_cont %>
+        <%= f.search_field :title_cont %>
+      </div>
+      <div class="col-2">
+        <%= f.label :grade_cont %>
+        <%= f.select :grade_cont, options_for_select([["",""],["6", "6"],["7", "7"], ["8", "8"], ["9","9"], ["Mọi lứa tuổi","Mọi lứa tuổi"]]), class: "form-control"%>
+      </div>
+      <div class="col-2">
+        <%= f.label :category_id_eq %>
+        <%= f.select :category_id_eq, Category.asc_name.collect {|category| [category.name, category.id]}, include_blank: true , class: "form-control"%>
+      </div>
+      <div class="col-2">
+        <%= f.label :subject_id_eq %>
+        <%= f.select :subject_id_eq, Subject.asc_name.collect {|subject| [subject.name, subject.id]}, include_blank: true , class: "form-control"%>
+      </div>  
+        <%= f.submit %>
+      <% end %>
+    </div>
     <div class="book-list">
       <% @books.each do |book| %>
         <%= link_to admin_book_path(book) do %>

@@ -6,7 +6,7 @@ class Admin::BaseController < ActionController::Base
   include Pagy::Backend
   include Pagy::Frontend
   layout "layouts/application_admin"
-  before_action :check_role_user
+  before_action :logged_in_user,:check_role_user
 
   private
 
@@ -15,6 +15,15 @@ class Admin::BaseController < ActionController::Base
     if current_user.student?
       flash[:danger] = "you are not admin "
       redirect_to root_path
+    end
+  end
+
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
     end
   end
 end

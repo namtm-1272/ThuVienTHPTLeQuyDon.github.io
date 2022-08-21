@@ -5,11 +5,9 @@ class Admin::UsersController < Admin::BaseController
         @pagy, @users = pagy(@q.result, items: 10)
       else
         @q = User.asc_name.ransack(params[:q])
-
-
-
         @pagy, @users = pagy(@q.result, items: 10)
       end
+
     end
 
     def edit

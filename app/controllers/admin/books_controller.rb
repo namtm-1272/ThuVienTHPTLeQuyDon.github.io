@@ -1,9 +1,6 @@
 class Admin::BooksController < Admin::BaseController
     def index
-      @category_options = [["",""]]
-      @subject_options = [["", ""]]
-      Category.all.each { |category| @category_options.push([category.name, category.id]) }
-      Subject.all.each { |subject| @subject_options.push([subject.name, subject.id]) }
+      @categories = Category.asc_name
       @q = Book.asc_title.ransack(params[:q])
       @pagy, @books = pagy(@q.result, items: 8)
     end
@@ -13,9 +10,9 @@ class Admin::BooksController < Admin::BaseController
     end
 
     def new
-        @category_options = Category.all.map { |category| [category.name, category.id] }
-        @subject_options = Subject.all.map { |subject| [subject.name, subject.id] }
-        @book = Book.new
+      @subjects = Subject.asc_name
+      @categories = Category.asc_name
+      @book = Book.new
     end
 
 
@@ -53,6 +50,6 @@ class Admin::BooksController < Admin::BaseController
 
     def book_params
       params.require(:book).permit(:id, :title, :author,
-                                    :subject, :grade, :category, :describe, :publish_on, :doc_file)
+                                    :subject_id, :grade, :category_id, :describe, :publish_on, :doc_file)
     end
   end
