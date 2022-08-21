@@ -3,8 +3,8 @@
     <div class="form row">
       <div class="login-form">
         <% provide :title, t(".login") %>
-          <p class="form-title"><%= t(".login") %></p>
-          <%= form_for :session, url: login_path do |f| %>
+        <p class="form-title"><%= t(".login") %></p>
+        <%= form_for :session, url: login_path do |f| %>
           <%= f.label :username %>
           <%= f.text_field :Tk, class: "form-control" %>
           <%= f.label :password %>

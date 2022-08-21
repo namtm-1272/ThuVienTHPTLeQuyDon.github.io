@@ -5,9 +5,10 @@
       <div class="edit-account">
         <p class="form-title">Chỉnh sửa đường dẫn</p>
         <%= form_for [:admin, @link] do |f| %>
-          <%= f.label :describe %>
+          <%= render "admin/shared/error_messages", object: f.object %>
+          <%= f.label :describe, "Miêu tả" %>
           <%= f.text_field :describe, class: "form-control" %>
-          <%= f.label :link %>
+          <%= f.label :link, "Link" %>
           <%= f.text_field :link, class: "form-control" %>
           <%= f.submit "Edit", class: "submit-btn" %>
         <% end %>

@@ -5,11 +5,12 @@
       <div class="edit-account">
         <p class="form-title">Chỉnh sửa lớp</p>
         <%= form_for [:admin, @class_user] do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-        <%= f.label :grade %>
-        <%= f.select :grade, options_for_select([["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"]]), class: "form-control" %>
-        <%= f.submit "Edit", class: "submit-btn" %>
+          <%= render "admin/shared/error_messages", object: f.object %>
+          <%= f.label :name, "Tên" %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :grade, "Khối" %>
+          <%= f.select :grade, options_for_select([["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"]]), class: "form-control" %>
+          <%= f.submit "Edit", class: "submit-btn" %>
         <% end %>
       </div>
     </div>

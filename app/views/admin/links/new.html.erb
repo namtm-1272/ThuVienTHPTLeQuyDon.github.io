@@ -4,10 +4,11 @@
     <div class="form row">
       <div class="edit-account">
         <p class="form-title">Thêm đường dẫn</p>
-        <%= form_for :link do |f| %>
-          <%= f.label :describe %>
+        <%= form_for [:admin, @link] do |f| %>
+          <%= render "admin/shared/error_messages", object: f.object %>
+          <%= f.label :describe, "Miêu tả" %>
           <%= f.text_field :describe, class: "form-control" %>
-          <%= f.label :link %>
+          <%= f.label :link, "Link" %>
           <%= f.text_field :link, class: "form-control" %>
           <%= f.submit "Add", class: "submit-btn" %>
         <% end %>

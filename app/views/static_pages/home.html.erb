@@ -1,80 +1,80 @@
 <div class="home-page-wrapper">
-    <div class="home-page">
-        <div class="slide-promotion">
-            <div class="slideshow-container">
-                <div class="mySlides fade_banner">
-                    <img src="https://sachdenroi.com/wp-content/uploads/2021/02/sach-hay-nen-doc-2021.jpg" width="100%" />
-                </div>
-                <div class="mySlides fade_banner">
-                    <img src="https://static.ybox.vn/2020/5/1/1589739508893-B%E1%BA%A3n%20chi%E1%BA%BFu1.JPG" width="100%" />
-                </div>
-                <div class="mySlides fade_banner">
-                    <img src="https://bloganchoi.com/wp-content/uploads/2019/08/giet-con-chim-nhai.jpg" width="100%" />
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                <div class="dot-container">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
-            </div>
+  <div class="home-page">
+    <div class="slide-promotion">
+      <div class="slideshow-container">
+        <div class="mySlides fade_banner">
+          <img src="https://sachdenroi.com/wp-content/uploads/2021/02/sach-hay-nen-doc-2021.jpg" width="100%" />
         </div>
-        <div class="book-list-container">
-            <div class="book-list-header">
-                Sách mới nhất <span><a href="/books">Xem thêm</a></span>
-            </div>
-            <div class="book-list home">
-                <% @books.each do |book| %>
-                    <a href="<%= "books/show?id=" + book.id.to_s %>">
-                        <div class="book-item-row">
-                            <div class="image-wrapper">
-                                    <%= image_tag book.doc_file_pages.first, width: "100%" %>
-                                <div class="see-detail">Xem chi tiết</div>
-                            </div>
-                            <div class="detail-wrapper">
-                                <p class="title">
-                                    <%= book.title %>
-                                    <span class="author">by <%= book.author %></span>
-                                </p>
-                                <p class="describe"><%= book.describe %></p>
-                            </div>
-                        </div>
-                    </a>
-                <% end %>
-            </div>
+        <div class="mySlides fade_banner">
+          <img src="https://static.ybox.vn/2020/5/1/1589739508893-B%E1%BA%A3n%20chi%E1%BA%BFu1.JPG" width="100%" />
         </div>
-        <div class="subject-list-container">
-            <div class="subject-list-header">
-                Danh sách môn học <span><a href="/books">Xem thêm</a></span>
-            </div>
-            <div class="subject-list">
-                <% @subjects.each do |subject| %>
-                    <a href="<%= "books?subject[]=" + subject.id.to_s %>">
-                        <div class="subject-item-row">
-                            <%= subject.name %>
-                        </div>
-                    </a>
-                <% end %>
-            </div>
+        <div class="mySlides fade_banner">
+          <img src="https://bloganchoi.com/wp-content/uploads/2019/08/giet-con-chim-nhai.jpg" width="100%" />
         </div>
-        <div class="category-list-container">
-            <div class="category-list-header">
-                Danh mục sách <span><a href="/books">Xem thêm</a></span>
-            </div>
-            <div class="category-list">
-                <% @categories.each do |category| %>
-                    <a href="<%= "books?category[]=" + category.id.to_s %>">
-                        <div class="category-item-row">
-                            <div class="category-image">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3843/3843517.png" width="100">
-                            </div>
-                            <%= category.name %>
-                        </div>
-                    </a>
-                <% end %>
-            </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
         </div>
+      </div>
     </div>
+    <div class="book-list-container">
+      <div class="book-list-header">
+        Sách mới nhất <span><a href="/books">Xem thêm</a></span>
+      </div>
+      <div class="book-list home">
+        <% @books.each do |book| %>
+          <a href="<%= "books/show?id=" + book.id.to_s %>">
+            <div class="book-item-row">
+              <div class="image-wrapper">
+                <%= image_tag book.doc_file_pages.first, width: "100%" %>
+                <div class="see-detail">Xem chi tiết</div>
+              </div>
+              <div class="detail-wrapper">
+                <p class="title">
+                  <%= book.title %>
+                  <span class="author">by <%= book.author %></span>
+                </p>
+                <p class="describe"><%= book.describe %></p>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="subject-list-container">
+      <div class="subject-list-header">
+        Danh sách môn học <span><a href="/books">Xem thêm</a></span>
+      </div>
+      <div class="subject-list">
+        <% @subjects.each do |subject| %>
+          <a href="<%= "books?subject[]=" + subject.id.to_s %>">
+            <div class="subject-item-row">
+              <%= subject.name %>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="category-list-container">
+      <div class="category-list-header">
+        Danh mục sách <span><a href="/books">Xem thêm</a></span>
+      </div>
+      <div class="category-list">
+        <% @categories.each do |category| %>
+          <a href="<%= "books?category[]=" + category.id.to_s %>">
+            <div class="category-item-row">
+              <div class="category-image">
+                <img src="https://cdn-icons-png.flaticon.com/512/3843/3843517.png" width="100">
+              </div>
+              <%= category.name %>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 <%= javascript_pack_tag "home" %>

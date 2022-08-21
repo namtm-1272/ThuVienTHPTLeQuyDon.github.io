@@ -1,103 +1,102 @@
 <div class="book-page-wrapper">
-    <div class="books-page">
-        <div class="left-section">
-            <div class="filter-bar" >
-                <form class="filters-form"  method="GET" >
-                <button type="submit" class="sort-btn"><span class="fa fa-filter"></span></button>
-                    <div>
-                        <div class="filter-header">
-                            Sắp xếp theo:
-                        </div>
-                        <%= select_tag "sorts", options_for_select([["Tên A-Z", "title:asc"], ["Tên Z-A", "title:desc"]]), class: 'customer-select'  %>
-                    </div>
-                    <div class="multi-select">
-                        <div class="select-box-header">
-                            Lọc theo môn học
-                        </div>
-                        <div class="checkbox-item-wrapper" id="checkboxes">
-                            <label>
-                                <input 
-                                    type="checkbox" 
+  <div class="books-page">
+    <div class="left-section">
+      <div class="filter-bar" >
+        <form class="filters-form"  method="GET" >
+          <button type="submit" class="sort-btn"><span class="fa fa-filter"></span></button>
+          <div>
+            <div class="filter-header">
+              Sắp xếp theo:
+            </div>
+            <%= select_tag "sorts", options_for_select([["Tên A-Z", "title:asc"], ["Tên Z-A", "title:desc"]]), class: 'customer-select'  %>
+          </div>
+          <div class="multi-select">
+            <div class="select-box-header">
+              Lọc theo môn học
+            </div>
+            <div class="checkbox-item-wrapper" id="checkboxes">
+              <label>
+                <input
+                                    type="checkbox"
                                     <%= @subject.length > 0 ? "" : "checked" %>
                                     onclick="toggleCheckbox(this, 'subject')"
                                 />
-                                Chọn/Bỏ chọn tất cả
-                            </label>
-                            <% @subject_list.each do |s| %>
-                            <label for="<%= s.id %>">
-                                <input 
+                Chọn/Bỏ chọn tất cả
+              </label>
+              <% @subject_list.each do |s| %>
+                <label for="<%= s.id %>">
+                  <input
                                     type="checkbox"
-                                    class="subject-checkbox-item" 
-                                    name="subject[]" 
-                                    value="<%= s.id %>" 
+                                    class="subject-checkbox-item"
+                                    name="subject[]"
+                                    value="<%= s.id %>"
                                     <%= (@subject.length == 0 || @subject.include?(s.id.to_s)) ? "checked" : "" %>
                                 />
-                                <%= s.name %>
-                            </label>
-                            <% end %>
-                        </div>
-                    </div>
-                    <div class="multi-select">
-                        <div class="select-box-header">
-                            Lọc theo danh mục
-                        </div>
-                        <div class="checkbox-item-wrapper" id="checkboxes">
-                            <label>
-                                <input 
-                                    type="checkbox" 
+                  <%= s.name %>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          <div class="multi-select">
+            <div class="select-box-header">
+              Lọc theo danh mục
+            </div>
+            <div class="checkbox-item-wrapper" id="checkboxes">
+              <label>
+                <input
+                                    type="checkbox"
                                     <%= @category.length > 0 ? "" : "checked" %>
                                     onclick="toggleCheckbox(this, 'category')"
                                 />
-                                Chọn/Bỏ chọn tất cả
-                            </label>
-                            <% @category_list.each do |s| %>
-                            <label for="<%= s.id %>">
-                                <input 
+                Chọn/Bỏ chọn tất cả
+              </label>
+              <% @category_list.each do |s| %>
+                <label for="<%= s.id %>">
+                  <input
                                     type="checkbox"
-                                    class="category-checkbox-item" 
-                                    name="category[]" 
-                                    value="<%= s.id %>" 
+                                    class="category-checkbox-item"
+                                    name="category[]"
+                                    value="<%= s.id %>"
                                     <%= (@category.length == 0 || @category.include?(s.id.to_s)) ? "checked" : "" %>
                                 />
-                                <%= s.name %>
-                            </label>
-                            <% end %>
-                        </div>
-                    </div>
-                </form>
+                  <%= s.name %>
+                </label>
+              <% end %>
             </div>
-        </div>
-        <div class="right-section">
-
-            <div class="book-list-container">
-                <div class="book-list">
-                    <% @books.each do |book| %>
-                        <a href="<%= "books/show?id=" + book.id.to_s %>">
-                            <div class="book-item-row">
-                                <div class="image-wrapper">
-                                    <%= image_tag book.doc_file_pages.first %>
-                                    <div class="see-detail">Xem chi tiết</div>
-                                </div>
-                                <div class="detail-wrapper">
-                                    <p class="title">
-                                        <%= book.title %>
-                                        <span class="author">by <%= book.author %></span>
-                                    </p>
-                                    <p class="describe"><%= book.describe %></p>
-                                </div>
-                            </div>
-                        </a>
-                    <% end %>
-                </div>
-                <div class="pagination">
-                    <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
-                    <% for i in (1..@totalPage) do %>
-                    <a href="/books?page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
-                    <% end %>
-                    <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
-                </div>
-            </div>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
+    <div class="right-section">
+      <div class="book-list-container">
+        <div class="book-list">
+          <% @books.each do |book| %>
+            <a href="<%= "books/show?id=" + book.id.to_s %>">
+              <div class="book-item-row">
+                <div class="image-wrapper">
+                  <%= image_tag book.doc_file_pages.first %>
+                  <div class="see-detail">Xem chi tiết</div>
+                </div>
+                <div class="detail-wrapper">
+                  <p class="title">
+                    <%= book.title %>
+                    <span class="author">by <%= book.author %></span>
+                  </p>
+                  <p class="describe"><%= book.describe %></p>
+                </div>
+              </div>
+            </a>
+          <% end %>
+        </div>
+        <div class="pagination">
+          <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
+          <% for i in (1..@totalPage) do %>
+            <a href="/books?page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
+          <% end %>
+          <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <%= javascript_pack_tag "books" %>
