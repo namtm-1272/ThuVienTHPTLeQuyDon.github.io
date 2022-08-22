@@ -1,5 +1,5 @@
 .header {
-    background-color: #be273e;
+    background-color: #e76161;
     color: black;
     padding: 20px 10px 0;
     height: fit-content;
@@ -88,7 +88,7 @@
 
 .dropdown-content a:hover {
     background-color: #f1f1f1;
-    color: #be273e;
+    color: #e76161;
 }
 
 .dropdown:hover .dropdown-content {
@@ -127,7 +127,7 @@
     input:focus,
     input:focus-visible,
     input:active {
-        outline: 2px solid #be273e !important;
+        outline: 2px solid #e76161 !important;
     }
 }
 
@@ -143,7 +143,7 @@
         height: 30px;
         border-radius: 6px;
         border: none;
-        background: #be273e;
+        background: #e76161;
         color: #fff;
     }
 }

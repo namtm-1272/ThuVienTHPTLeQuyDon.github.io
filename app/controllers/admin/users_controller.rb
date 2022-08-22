@@ -21,7 +21,7 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def update
-      params[:id]["role"] = params[:id]["role"].to_i
+      params[:id] = params[:id].to_i
       @user = User.find_by id: params[:id]
       if @user.update user_params
         flash[:success] = "Successed"
