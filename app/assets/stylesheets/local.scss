@@ -1,0 +1,41 @@
+.local-page-wrapper {
+    display: flex;
+    justify-content: center;
+    background: #F0F0F0;
+}
+
+.local-page {
+    max-width: 1120px;
+    width: 100%;
+    margin: 16px 0;
+    padding: 16px;
+    background: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+
+
+    .local-list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+    }
+
+    .local_book_search {
+        display: flex;
+        flex-direction: column;
+
+        input[type=submit] {
+            padding: 8px 16px;
+        }
+    }
+
+    .rwd-table {
+        margin-top: 24px;
+    }
+
+    .pagy-nav {
+        align-self: center;
+    }
+}

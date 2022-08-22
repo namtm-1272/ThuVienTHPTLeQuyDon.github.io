@@ -7,7 +7,9 @@
    <%= link_to "Danh sách tài khoản", admin_users_path, class: "sidebar-button sub-menu account"%>
    <%= link_to "Thêm tài khoản", admin_add_user_path, class: "sidebar-button sub-menu account"%>
 
-   <%= link_to "Thống kê", admin_statistics_path, class: "sidebar-button"%>
+   <%= link_to admin_statistics_path, class: "sidebar-button" do %>
+      <span class="fa fa-bar-chart"></span> Thống kê
+   <% end %>
 
    <div class="sidebar-button menu" onclick="onMenuClick('class')">
       <span class="fa fa-building"></span> Quản lý lớp
@@ -22,25 +24,25 @@
    <%= link_to "Thêm sách", admin_add_book_path, class: "sidebar-button sub-menu book"%>
 
    <div class="sidebar-button menu" onclick="onMenuClick('subject')">
-      <span class="fa fa-book"></span> Quản lý môn học
+      <span class="fa fa-briefcase"></span> Quản lý môn học
    </div>
    <%= link_to "Danh sách môn học", admin_subjects_path, class: "sidebar-button sub-menu subject"%>
    <%= link_to "Thêm môn học", new_admin_subject_path, class: "sidebar-button sub-menu subject"%>
 
    <div class="sidebar-button menu" onclick="onMenuClick('category')">
-      <span class="fa fa-book"></span> Quản lý loại sách
+      <span class="fa fa-sitemap"></span> Quản lý loại sách
    </div>
    <%= link_to "Danh sách loại sách", admin_categories_path, class: "sidebar-button sub-menu category"%>
    <%= link_to "Thêm loại sách", new_admin_category_path, class: "sidebar-button sub-menu category"%>
 
    <div class="sidebar-button menu" onclick="onMenuClick('local_book')">
-     <span class="fa fa-book"></span> Quản lý sách hiện có trên trường
+     <span class="fa fa-globe"></span> Quản lý sách hiện có trên trường
    </div>
    <%= link_to "Danh sách loại sách", admin_local_books_path, class: "sidebar-button sub-menu local_book"%>
    <%= link_to "Thêm loại sách", new_admin_local_book_path, class: "sidebar-button sub-menu local_book"%>
 
    <div class="sidebar-button menu" onclick="onMenuClick('link')">
-      <span class="fa fa-book"></span> Quản lý đường dẫn thư viện mở rộng
+      <span class="fa fa-link"></span> Quản lý đường dẫn thư viện mở rộng
    </div>
    <%= link_to "Danh sách đường dẫn", admin_links_path, class: "sidebar-button sub-menu link"%>
    <%= link_to "Thêm đường dẫn", new_admin_link_path, class: "sidebar-button sub-menu link"%>
