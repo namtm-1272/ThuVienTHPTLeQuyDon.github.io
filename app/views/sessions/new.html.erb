@@ -1,3 +1,4 @@
+<% provide(:title, 'Reset password') %>
 <div class="form-container">
   <div class="container">
     <div class="form row">
@@ -11,7 +12,7 @@
           <%= f.password_field :password, class: "form-control" %>
           <%= f.submit "login", class: "submit-btn" %>
         <% end %>
-        
+        <p><%= link_to "Forgot Password", new_password_reset_path %></p>
       </div>
     </div>
   </div>

@@ -4,9 +4,9 @@
       <%= link_to "Thư viện Lê Quý Đôn", root_path, class: "logo" %>
       <div class="header-right">
         <%= link_to "Home", root_path %>
-        <%= link_to "Books", "/books" %>
-        <%= link_to "Links", "/links" %>
-        <%= link_to "Search", local_books_path %>
+        <%= link_to "Sách", "/books" %>
+        <%= link_to "Thư viện mở rộng", "/links" %>
+        <%= link_to "Tìm sách trên thư viện", local_books_path %>
         <% if logged_in? %>
           <%= link_to "User", "/users" %>
           <div class="dropdown">
