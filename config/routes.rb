@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   post "users", to: "users#update"
   get "/search", to: "books#search"
+  get "/links", to: "links#index"
   resources :users
   resources :books
   namespace :admin do
