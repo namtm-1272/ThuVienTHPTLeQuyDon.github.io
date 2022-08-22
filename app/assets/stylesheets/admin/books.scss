@@ -1,5 +1,15 @@
 .form-container {
     padding: 50px;
+    width: 100%;
+
+    input,
+    select {
+        background: #f2f2f2 !important;
+    }
+
+    input[type=submit] {
+        background: #e76161 !important;
+    }
 }
 
 .book-manage-page {
@@ -62,7 +72,7 @@
 
         .detail-wrapper {
             .title {
-                color: #be273e;
+                color: #e76161;
             }
         }
     }
@@ -95,7 +105,7 @@
     }
 
     .active {
-        background-color: #be273e;
+        background-color: #e76161;
         font-weight: 700;
         color: #fff;
         padding: 8px 16px;
@@ -194,7 +204,7 @@
     select:focus,
     select:focus-visible,
     select:active {
-        outline: 2px solid #be273e !important;
+        outline: 2px solid #e76161 !important;
     }
 
     input[type=submit],
@@ -204,7 +214,7 @@
         line-height: 20px;
         border-radius: 6px;
         border: none;
-        background: #be273e;
+        background: #e76161;
         color: #fff;
         cursor: pointer;
     }
@@ -250,14 +260,14 @@
             .book-title {
                 font-size: 24px;
                 font-weight: 700;
-                color: #be273e;
+                color: #e76161;
             }
         }
 
         .functional-btn {
             .fa {
                 padding: 8px 32px;
-                background: #be273e;
+                background: #e76161;
                 color: #fff;
                 font-size: 24px;
                 border-radius: 8px;

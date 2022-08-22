@@ -57,7 +57,7 @@ input {
   .form-title {
     font-size: 36px;
     font-weight: 700;
-    color: #be273e;
+    color: #e76161;
   }
 
   .form-control,
@@ -74,8 +74,8 @@ input {
     border-radius: 8px;
 
     &:focus {
-      border-color: #be273e;
-      box-shadow: 0 0 8px #be273e;
+      border-color: #e76161;
+      box-shadow: 0 0 8px #e76161;
     }
   }
 
@@ -83,7 +83,7 @@ input {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #be273e;
+    background: #e76161;
     width: 100%;
     border: 0;
     padding: 15px;
@@ -98,7 +98,7 @@ input {
   .submit-btn:hover,
   .submit-btn:active,
   .submit-btn:focus {
-    background: #be273e;
+    background: #e76161;
   }
 
   .message {
@@ -108,7 +108,7 @@ input {
   }
 
   .message a {
-    color: #be273e;
+    color: #e76161;
     text-decoration: none;
   }
 }

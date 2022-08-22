@@ -4,7 +4,7 @@
     <div class="local-list">
       <%= search_form_for @q do |f| %>
         <div class="col-10">
-          <%= f.label :code_or_name_cont, "Nhập tến sách hoặc mã sách " %>
+          <%= f.label :code_or_name_cont, "Nhập teen sách hoặc mã sách " %>
           <%= f.search_field :code_or_name_cont %>
         </div>
         <%= f.submit %>
@@ -19,7 +19,6 @@
       <th>Vị trí</th>
       <th>Môn học</th>
       <th>Loại sách</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -30,16 +29,6 @@
         <td><%= local_book.poision %></td>
         <td><%= local_book.subject_name %></td>
         <td><%= local_book.category_name %></td>
-        <td>
-          <div class="action-btn">
-            <%= link_to edit_admin_local_book_path(local_book) do %>
-              <span class="fa fa-edit"></span>
-            <% end %>
-            <%= link_to admin_local_book_path(local_book), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
-              <span class="fa fa-trash"></span>
-            <% end %>
-          </div>
-        </td>
       </tr>
     <% end %>
   </tbody>
