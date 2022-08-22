@@ -1,3 +1,4 @@
+<% provide(:title, 'user') %>
 <div class="profile-page">
   <div class="profile-container">
     <div class="infor-profile">
@@ -27,6 +28,8 @@
         <%= f.hidden_field :id, value: current_user.id%>
         <%= f.label :password %>
         <%= f.password_field :password, class: "form-control" %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
         <%= f.submit "update", class: "submit-btn" %>
       <% end %>
     </div>

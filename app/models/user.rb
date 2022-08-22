@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   belongs_to :class_user
 
+  attr_accessor :reset_token
+
   before_save :downcase_Tk
 
   validates :name, presence: true, length: { maximum: 40 }
@@ -18,6 +20,33 @@ class User < ApplicationRecord
   delegate :name, to: :class_user, prefix: :class_user, allow_nil: true
 
   has_secure_password
+
+  class << self
+    def digest string
+      cost = if ActiveModel::SecurePassword.min_cost
+               BCrypt::Engine::MIN_COST
+             else
+               BCrypt::Engine.cost
+             end
+      BCrypt::Password.create string, cost: cost
+    end
+
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+  def password_reset_expired?
+    reset_sent_at < 1.hours.ago
+  end
 
   def downcase_Tk
     self.Tk.downcase!

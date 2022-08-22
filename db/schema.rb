@@ -116,11 +116,14 @@ ActiveRecord::Schema.define(version: 2022_08_20_193953) do
     t.datetime "birthday"
     t.string "email"
     t.integer "role", default: 2
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.bigint "class_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Tk"], name: "index_users_on_Tk", unique: true
     t.index ["class_user_id"], name: "index_users_on_class_user_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -24,7 +26,8 @@ Rails.application.routes.draw do
   resources :users
   resources :books
   resources :local_books
-
+  resources :password_resets, only: [:new, :create, :edit, :update]
+  
   namespace :admin do
     root to: "statistics#index"
     get "/admin", to: "statistics#index"

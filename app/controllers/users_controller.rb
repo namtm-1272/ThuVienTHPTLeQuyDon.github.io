@@ -4,10 +4,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
-  end
-
   def index
     @user = User.new
   end
@@ -15,32 +11,17 @@ class UsersController < ApplicationController
   def update
       @user = User.find(update_params[:id])
       if (@user.update(update_params))
+        flash[:success] = "Đổi mật khẩu thành công"
         redirect_to users_path
       else
-        flash[:alert] = "Something was wrong"
+        flash[:alert] = "Không thành công"
         render :new
       end
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to root_path
-    else
-      flash[:alert] = "Something was wrong"
-      render :new
-    end
   end
 
   private
 
   def update_params
-    params.required(:user).permit(:id, :password, :name, :birthday, :email)
+    params.required(:user).permit(:id, :password, :password_confirmation, :name, :birthday, :email)
   end
-
-  def user_params
-    params.required(:user).permit(:Tk, :password, :name, :birthday, :email, :class_user_id)
-  end
-
-
 end
