@@ -3,17 +3,19 @@
   <div class="account-manage-page">
     <div class="container">
       <%= search_form_for [:admin, @q] do |f| %>
-        <div class="col-4">
-          <%= f.label :name_cont, "Tên sách" %>
-          <%= f.search_field :name_cont %>
-        </div>
-        <div class="col-2">
-          <%= f.label :category_id_eq, "Loại sách" %>
-          <%= f.select :category_id_eq, Category.asc_name.collect {|category| [category.name, category.id]}, include_blank: true , class: "form-control"%>
-        </div>
-        <div class="col-2">
-          <%= f.label :subject_id_eq, "Môn học" %>
-          <%= f.select :subject_id_eq, Subject.asc_name.collect {|subject| [subject.name, subject.id]}, include_blank: true , class: "form-control"%>
+        <div class="form-section">
+          <div class="col-8">
+            <%= f.label :name_cont, "Tên sách" %>
+            <%= f.search_field :name_cont %>
+          </div>
+          <div class="col-1">
+            <%= f.label :category_id_eq, "Loại sách" %>
+            <%= f.select :category_id_eq, Category.asc_name.collect {|category| [category.name, category.id]}, include_blank: true , class: "form-control"%>
+          </div>
+          <div class="col-1">
+            <%= f.label :subject_id_eq, "Môn học" %>
+            <%= f.select :subject_id_eq, Subject.asc_name.collect {|subject| [subject.name, subject.id]}, include_blank: true , class: "form-control"%>
+          </div>
         </div>
         <%= f.submit %>
       <% end %>

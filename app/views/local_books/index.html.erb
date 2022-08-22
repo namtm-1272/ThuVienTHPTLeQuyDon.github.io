@@ -1,18 +1,17 @@
 <% provide(:title, 'Local Book') %>
-<div class="link-page-wrapper">
-  <div class="link-page">
-    <div class="link-list">
+<div class="local-page-wrapper">
+  <div class="local-page">
+    <div class="local-list">
       <%= search_form_for @q do |f| %>
-        <div class="col-4">
+        <div class="col-10">
           <%= f.label :code_or_name_cont, "Nhập tến sách hoặc mã sách " %>
           <%= f.search_field :code_or_name_cont %>
         </div>
         <%= f.submit %>
       <% end %>
     </div>
-  </div>
-</div>
-<table class="rwd-table">
+
+    <table class="rwd-table">
   <thead>
     <tr>
       <th>Mã</th>
@@ -46,4 +45,6 @@
   </tbody>
 </table>
 <%== pagy_nav(@pagy) %>
+  </div>
+</div>
 </div>
