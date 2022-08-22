@@ -19,8 +19,12 @@ Rails.application.routes.draw do
   post "users", to: "users#update"
   get "/search", to: "books#search"
   get "/links", to: "links#index"
+  get "/search_local_book", to: "local_books#search"
+  post "search_local_book", to: "local_book#index"
   resources :users
   resources :books
+  resources :local_books
+
   namespace :admin do
     root to: "statistics#index"
     get "/admin", to: "statistics#index"

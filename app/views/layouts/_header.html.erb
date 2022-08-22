@@ -6,6 +6,7 @@
         <%= link_to "Home", root_path %>
         <%= link_to "Books", "/books" %>
         <%= link_to "Links", "/links" %>
+        <%= link_to "Search", local_books_path %>
         <% if logged_in? %>
           <%= link_to "User", "/users" %>
           <div class="dropdown">

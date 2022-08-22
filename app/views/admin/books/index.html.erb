@@ -3,6 +3,9 @@
   <div class="book-manage-page">
     <div class="container">
       <%= search_form_for [:admin, @q] do |f| %>
+        <div class="col-2">
+          <%= sort_link(@q, :num_watch,"Hot", default_order: :desc) %>
+        </div>
         <div class="col-4">
           <%= f.label :title_cont %>
           <%= f.search_field :title_cont %>

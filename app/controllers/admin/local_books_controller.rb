@@ -51,7 +51,7 @@ class Admin::LocalBooksController < Admin::BaseController
   private
 
   def local_book_params
-    params.require(:local_book).permit(:id, :code, :name, :subject_id, :category_id)
+    params.require(:local_book).permit(:id, :code, :name,:poision, :subject_id, :category_id)
   end
 
 end

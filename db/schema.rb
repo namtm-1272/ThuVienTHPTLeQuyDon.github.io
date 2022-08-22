@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2022_08_20_193953) do
   create_table "local_books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "code"
     t.string "name"
+    t.string "poision"
     t.bigint "subject_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false

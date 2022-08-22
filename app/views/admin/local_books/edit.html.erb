@@ -10,6 +10,8 @@
           <%= f.text_field :code, class: "form-control" %>
           <%= f.label :name, "Tên" %>
           <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :poision, "Vị trí" %>
+          <%= f.text_field :poision, class: "form-control" %>
           <%= f.label :subject, "Môn học" %>
           <%= collection_select(:local_book, :subject_id, @subjects, :id, :name) %>
           <%= f.label :category, "Loại sách" %>
