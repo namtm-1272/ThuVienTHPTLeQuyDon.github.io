@@ -45,3 +45,24 @@ config/environments/*.local.yml
 
 # Ignore application configuration
 /config/application.yml
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Other
+config/database.yml
+public/*
+.env
+coverage/
+.rspec
+
+config/settings.local.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
