@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.5.0"
+lock "3.17.1"
 
 set :application, "iorder_server"
 set :repo_url, "git@github.com:namtm-1272/thuvienthptlequydon.github.io.git"
