@@ -7,6 +7,7 @@
         <%= link_to "Sách", "/books" %>
         <%= link_to "Thư viện mở rộng", "/links" %>
         <%= link_to "Tìm sách trên thư viện", local_books_path %>
+        <%= link_to "Cá nhân", users_path %>
         <% if logged_in? %>
           <%= link_to "Đăng xuất", logout_path, method: :delete %>
         <% else %>
