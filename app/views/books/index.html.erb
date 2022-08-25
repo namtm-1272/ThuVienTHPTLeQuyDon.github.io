@@ -34,16 +34,16 @@
                                 />
                   <%= s.name %>
                 </label>
-              <% end %>
-            </div>
-          </div>
-          <div class="multi-select">
-            <div class="select-box-header">
-              Lọc theo danh mục
-            </div>
-            <div class="checkbox-item-wrapper" id="checkboxes">
-              <label>
-                <input
+                  <% end %>
+                </div>
+              </div>
+              <div class="multi-select">
+                <div class="select-box-header">
+                  Lọc theo danh mục
+                </div>
+                <div class="checkbox-item-wrapper" id="checkboxes">
+                  <label>
+                    <input
                                     type="checkbox"
                                     <%= @category.length > 0 ? "" : "checked" %>
                                     onclick="toggleCheckbox(this, 'category')"
@@ -52,7 +52,7 @@
               </label>
               <% @category_list.each do |s| %>
                 <label for="<%= s.id %>">
-                  <input
+                      <input
                                     type="checkbox"
                                     class="category-checkbox-item"
                                     name="category[]"
@@ -61,42 +61,42 @@
                                 />
                   <%= s.name %>
                 </label>
-              <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="right-section">
-      <div class="book-list-container">
-        <div class="book-list">
-          <% @books.each do |book| %>
-            <a href="<%= "books/show?id=" + book.id.to_s %>">
-              <div class="book-item-row">
-                <div class="image-wrapper">
-                  <%= image_tag book.doc_file_pages.first %>
-                  <div class="see-detail">Xem chi tiết</div>
+            <div class="right-section">
+              <div class="book-list-container">
+                <div class="book-list">
+                  <% @books.each do |book| %>
+                    <a href="<%= "books/show?id=" + book.id.to_s %>">
+                      <div class="book-item-row">
+                        <div class="image-wrapper">
+                          <%= image_tag book.doc_file_pages.first %>
+                          <div class="see-detail">Xem chi tiết</div>
+                        </div>
+                        <div class="detail-wrapper">
+                          <p class="title">
+                            <%= book.title %>
+                            <span class="author">by <%= book.author %></span>
+                          </p>
+                          <p class="describe"><%= book.describe %></p>
+                        </div>
+                      </div>
+                    </a>
+                  <% end %>
                 </div>
-                <div class="detail-wrapper">
-                  <p class="title">
-                    <%= book.title %>
-                    <span class="author">by <%= book.author %></span>
-                  </p>
-                  <p class="describe"><%= book.describe %></p>
+                <div class="pagination">
+                  <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
+                  <% for i in (1..@totalPage) do %>
+                    <a href="/books?page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
+                  <% end %>
+                  <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
                 </div>
               </div>
-            </a>
-          <% end %>
+            </div>
+          </div>
         </div>
-        <div class="pagination">
-          <% if (@page > 1) %><a href="/books?page=<%= @page - 1%>">&laquo;</a><% end %>
-          <% for i in (1..@totalPage) do %>
-            <a href="/books?page=<%= i %>" class="<%= 'active' if (@page == i) %>"><%= i %></a>
-          <% end %>
-          <% if (@page < @totalPage) %><a href="/books?page=<%= @page + 1 %>">&raquo;</a><% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<%= javascript_pack_tag "books" %>
+        <%= javascript_pack_tag "books" %>
