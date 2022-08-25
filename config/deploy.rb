@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+lock "~> 3.17.1"
 
 set :application, "libruary_app"
 set :repo_url, "git@github.com:MinhNamThan/ThuVienTHPTLeQuyDon.github.io.git"
