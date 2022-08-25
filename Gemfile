@@ -23,11 +23,11 @@ gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
 gem "pry-rails"
 gem "ransack"
-gem "capistrano"
-gem "capistrano3-puma"
-gem "capistrano-rails", require: false
-gem "capistrano-bundler", require: false
-gem "capistrano-rvm"
+gem 'capistrano', '>=3.12.0'
+gem 'capistrano3-puma'
+gem 'capistrano-rails', require: false
+gem 'capistrano-bundler', require: false
+gem 'capistrano-rbenv'
 
 group :development, :test do
   gem "pry", "~> 0.14.0"
