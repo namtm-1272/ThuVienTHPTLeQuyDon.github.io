@@ -28,6 +28,8 @@ gem 'capistrano3-puma'
 gem 'capistrano-rails', require: false
 gem 'capistrano-bundler', require: false
 gem 'capistrano-rbenv'
+gem "capistrano-rvm", require: false
+gem "capistrano-chruby", require: false
 
 group :development, :test do
   gem "pry", "~> 0.14.0"
