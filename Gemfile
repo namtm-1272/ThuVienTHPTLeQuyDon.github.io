@@ -27,8 +27,7 @@ gem 'capistrano', '>=3.12.0'
 gem 'capistrano3-puma'
 gem 'capistrano-rails', require: false
 gem 'capistrano-bundler', require: false
-gem 'capistrano-rbenv'
-gem "capistrano-rvm", require: false
+gem 'capistrano-rbenv', require: false
 gem "capistrano-chruby", require: false
 
 group :development, :test do
