@@ -4,7 +4,7 @@ lock "~> 3.17.1"
 set :application, "libruary_app"
 set :repo_url, "git@github.com:MinhNamThan/ThuVienTHPTLeQuyDon.github.io.git"
 
-set :rbenv_ruby, '2.7.1'
+set :rbenv_ruby, File.read('.ruby-version').strip
 
 set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
 set :pty, true
