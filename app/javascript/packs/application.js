@@ -11,10 +11,8 @@ import "channels";
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-
+console.log("abd")
 require("jquery");
 import "bootstrap";
 require("./books");
-require("./pdf_to_image_channel");
-require("./progress_before_conversion_channel");
 require("./home");

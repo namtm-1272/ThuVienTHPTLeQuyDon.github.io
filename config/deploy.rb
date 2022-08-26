@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-require "bundler/capistrano"
+# require "bundler/capistrano"
 
 lock "~> 3.17.1"
 
