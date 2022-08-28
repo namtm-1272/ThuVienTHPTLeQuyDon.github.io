@@ -3,7 +3,7 @@
 
 lock "~> 3.17.1"
 
-set :application, "libruary_app"
+set :application, "libruary_server"
 set :repo_url, "git@github.com:MinhNamThan/ThuVienTHPTLeQuyDon.github.io.git"
 
 set :rbenv_ruby, "2.7.1"
