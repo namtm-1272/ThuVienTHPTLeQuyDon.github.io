@@ -27,3 +27,7 @@ set :puma_workers, 0
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
+set :assets_prefix, 'packs'
+set :assets_manifests, lambda { # Tell Capistrano-Rails how to find the Webpacker manifests
+  [release_path.join('public', fetch(:assets_prefix), 'manifest.json*')]
+}

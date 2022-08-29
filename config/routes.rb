@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   namespace :admin do
-    root to: "statistics#index"
+    root "statistics#index"
     get "/admin", to: "statistics#index"
     get "/books", to: "books#index"
     post "/books/:id", to: "books#update"
