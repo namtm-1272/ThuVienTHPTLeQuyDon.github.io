@@ -16,5 +16,5 @@ ActiveStorage.start();
 console.log("abd")
 require("jquery");
 import "bootstrap";
-require("./js/books");
-require("./js/home");
+require("./books");
+require("./home");
