@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   namespace :admin do
+    mount ActionCable.server => '/cable'
     root "statistics#index"
     get "/admin", to: "statistics#index"
     get "/books", to: "books#index"
