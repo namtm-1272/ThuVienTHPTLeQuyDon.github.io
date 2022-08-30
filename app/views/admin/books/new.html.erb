@@ -4,7 +4,7 @@
     <div class="form row">
       <div class="add-book">
         <p class="form-title">Thêm sách</p>
-        <%= form_for([:admin, @book], remote: true) do |f| %>
+        <%= form_for([:admin, @book]) do |f| %>
           <%= render "admin/shared/error_messages", object: f.object %>
           <%= f.label :title, "Tiêu đề" %>
           <%= f.text_field :title, class: "form-control" %>
