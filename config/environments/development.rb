@@ -84,7 +84,4 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true
   }
-  config.action_cable.url = "ws://localhost/cable"
-  config.action_cable.allowed_request_origins = [/http:\/\/*/,
-    /https:\/\/*/]
 end
