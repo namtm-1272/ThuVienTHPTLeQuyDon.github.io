@@ -34,7 +34,7 @@ class CreateImagesOfPdfPagesJob < ApplicationJob
         doc_id: book.id
       }
 
-      # cable_broadcast("pdf_to_image_channel", broadcasting_content)
+      cable_broadcast("pdf_to_image_channel", broadcasting_content)
 
       book.doc_file_pages.attach(io: File.open(converted_file_path), filename: file_name, content_type: "image/png")
       # remove tempfile
