@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount ActionCable.server, at: '/cable'
+  default_url_options :host => "103.166.185.90"
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
