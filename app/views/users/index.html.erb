@@ -11,7 +11,7 @@
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control", value: current_user.name %>
         <%= f.label :birthday %>
-        <%= f.text_field :birthday, class: "form-control", value: current_user.birthday %>
+        <%= f.date_field :birthday, class: "form-control", value: current_user.birthday %>
         <%= f.label :email %>
         <%= f.text_field :email, class: "form-control", value: current_user.email %>
         <%= f.submit "update", class: "submit-btn" %>
