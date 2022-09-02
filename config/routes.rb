@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   post "/register", to: "users#create"
   delete '/logout', to: 'sessions#destroy'
-  post "users", to: "users#update"
   get "/search", to: "books#search"
   get "/links", to: "links#index"
   get "/search_local_book", to: "local_books#search"
