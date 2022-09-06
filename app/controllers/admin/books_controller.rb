@@ -1,5 +1,5 @@
 class Admin::BooksController < Admin::BaseController
-    before_action :find_book, only: %i(show destroy)
+    before_action :find_book, except: %i(index new create)
     def index
       @categories = Category.asc_name
       @q = Book.asc_title.ransack(params[:q])
@@ -28,6 +28,22 @@ class Admin::BooksController < Admin::BaseController
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @book.errors, status: :unprocessable_entity }
         end
+      end
+    end
+
+
+    def edit
+      @subjects = Subject.asc_name
+      @categories = Category.asc_name
+    end
+
+    def update
+      if @book.update book_params
+        flash[:success] = "Book updated"
+        redirect_to admin_books_path
+      else
+        flash[:danger] = "Not updated book"
+        render :edit
       end
     end
 
